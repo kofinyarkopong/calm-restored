@@ -1,0 +1,35 @@
+import type { Metadata } from "next";
+import ContactSection from "@/components/ContactSection";
+import { PhoneIcon } from "@/components/Icons";
+import PageHero from "@/components/PageHero";
+import { site } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Request a Consultation",
+  description:
+    "Contact Calm Restored in West Trasacco, Accra, to enquire about a private consultation with Dr Albert Sedohia, Specialist Psychiatrist. Call +233 24 276 0157.",
+  alternates: { canonical: "/contact" },
+};
+
+export default function ContactPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Contact"
+        title={<>Request a <em className="font-light italic text-gold-light">consultation.</em></>}
+        intro={<p>Speak to the team by telephone, or send a brief enquiry below. We will discuss your needs and the consultation options that may suit you.</p>}
+        image="contact"
+      >
+        <a href={site.phone.href} className="btn btn-light"><PhoneIcon /> Call {site.phone.display}</a>
+      </PageHero>
+
+      <section aria-label="Emergency information" className="bg-lavender">
+        <div className="container-site py-6 text-plum-ink" role="note">
+          <strong className="font-medium">In an emergency:</strong> if you or someone else is at immediate risk, go to the nearest emergency department or contact emergency services. This form is not monitored continuously.
+        </div>
+      </section>
+
+      <ContactSection showPhoto={false} heading="Your journey to calm begins here." />
+    </>
+  );
+}
