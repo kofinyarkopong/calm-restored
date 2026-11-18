@@ -34,11 +34,11 @@ export const site = {
 
 /** Website credit shown at the foot of every page */
 export const credit = {
-  name: "Expedyte360 Co. Ltd",
+  name: "Expedyte 360 Co Ltd",
   phoneDisplay: "055 931 3198",
   phoneHref: "tel:+233559313198",
   /** Put the logo file in /public/images/brand/ and set its path here, e.g. "/images/brand/expedyte360.png" */
-  logo: null as string | null,
+  logo: "/images/brand/expedyte360-mark.png" as string | null,
 };
 
 export const mainNav = [

@@ -62,7 +62,7 @@ export default function Footer() {
         <div className="mt-8 flex flex-col items-center justify-center gap-3 border-t border-ivory/10 pt-8 text-center text-xs tracking-wide text-ivory/60 sm:flex-row sm:gap-4">
           <span className="inline-flex items-center gap-2.5">
             {credit.logo ? (
-              <Image src={credit.logo} alt="" width={28} height={28} className="h-7 w-auto" />
+              <Image src={credit.logo} alt="" width={256} height={228} className="h-6 w-auto" />
             ) : (
               <svg aria-hidden viewBox="0 0 32 32" className="h-7 w-7">
                 <circle cx="16" cy="16" r="11" fill="none" stroke="#3b82c4" strokeWidth="1.6" />
@@ -71,12 +71,12 @@ export default function Footer() {
               </svg>
             )}
             <span>
-              Website designed and powered by <strong className="font-medium text-ivory/90">{credit.name}</strong>
+              Website by <strong className="font-medium text-ivory/90">{credit.name}</strong>
             </span>
           </span>
           <span aria-hidden className="hidden text-gold-light sm:inline">·</span>
           <a href={credit.phoneHref} className="link-underline text-ivory/80 hover:text-ivory">
-            Call {credit.phoneDisplay}
+            {credit.phoneDisplay}
           </a>
         </div>
       </div>
