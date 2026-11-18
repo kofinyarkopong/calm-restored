@@ -77,7 +77,7 @@ export default function HomePage() {
       </section>
 
       {/* B. A personal welcome */}
-      <section aria-labelledby="welcome-heading" className="py-24 md:py-36">
+      <section aria-labelledby="welcome-heading" className="py-16 md:py-36">
         <div className="container-site grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-6 lg:col-start-1">
             <p className="eyebrow reveal">Welcome</p>
@@ -114,7 +114,7 @@ export default function HomePage() {
       </section>
 
       {/* C. Meet Dr Albert Sedohia */}
-      <section aria-labelledby="meet-heading" className="py-24 md:py-36">
+      <section aria-labelledby="meet-heading" className="py-16 md:py-36">
         <div className="container-site grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="relative lg:col-span-5">
             <Photo image="meetDoctor" sizes="(min-width:1024px) 40vw, 90vw" className="aspect-[3/4] rounded-sm" />
@@ -155,7 +155,7 @@ export default function HomePage() {
       </section>
 
       {/* D. Specialist services */}
-      <section aria-labelledby="services-heading" className="bg-ivory-deep py-24 md:py-36">
+      <section aria-labelledby="services-heading" className="bg-ivory-deep py-16 md:py-36">
         <div className="container-site grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
@@ -222,7 +222,7 @@ export default function HomePage() {
       </section>
 
       {/* F. Stress management and wellbeing */}
-      <section aria-labelledby="calm-heading" className="surface-grain overflow-hidden bg-[linear-gradient(160deg,#f3eadc_0%,#efe8f4_100%)] py-24 md:py-36">
+      <section aria-labelledby="calm-heading" className="surface-grain overflow-hidden bg-[linear-gradient(160deg,#f3eadc_0%,#efe8f4_100%)] py-16 md:py-36">
         <div className="container-site relative grid items-center gap-14 lg:grid-cols-12">
           <div className="order-2 lg:order-1 lg:col-span-6">
             <p className="eyebrow reveal">Stress management and wellbeing</p>
@@ -244,13 +244,29 @@ export default function HomePage() {
           </div>
           <div className="order-1 grid grid-cols-5 gap-4 lg:order-2 lg:col-span-6">
             <Photo image="ecotherapy" sizes="(min-width:1024px) 30vw, 55vw" className="col-span-3 aspect-[3/4] rounded-t-[999px]" />
-            <Photo image="premisesGarden" sizes="(min-width:1024px) 20vw, 40vw" className="col-span-2 mt-16 aspect-[3/5] rounded-b-[999px]" delay={200} />
+            <Photo image="waterfall" sizes="(min-width:1024px) 20vw, 40vw" className="col-span-2 mt-16 aspect-[3/5] rounded-b-[999px]" delay={200} />
+          </div>
+        </div>
+      </section>
+
+      {/* Our setting: photographic band */}
+      <section aria-labelledby="setting-band-heading" className="relative isolate overflow-hidden bg-aubergine text-ivory">
+        <div className="absolute inset-0 -z-10">
+          <Photo image="aerialGardens" sizes="100vw" reveal={false} className="h-full w-full" />
+        </div>
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-aubergine via-aubergine/55 to-aubergine/10 md:bg-gradient-to-r md:from-aubergine/90 md:via-aubergine/45 md:to-transparent" />
+        <div className="container-site flex min-h-[30rem] items-end py-14 md:min-h-[36rem] md:items-center md:py-24">
+          <div className="max-w-lg">
+            <p className="eyebrow reveal !text-gold-light">Our setting</p>
+            <h2 id="setting-band-heading" className="reveal mt-5 text-4xl md:text-6xl">A garden sanctuary in the city.</h2>
+            <p className="reveal mt-5 text-lg text-ivory/85">Palms, gardens and running water in West Trasacco, a setting chosen to help you feel at ease.</p>
+            <Link href="/experience#setting" className="btn btn-outline-light reveal mt-8">See our setting <ArrowRight /></Link>
           </div>
         </div>
       </section>
 
       {/* G. What happens next */}
-      <section aria-labelledby="next-heading" className="py-24 md:py-36">
+      <section aria-labelledby="next-heading" className="py-16 md:py-36">
         <div className="container-site">
           <div className="grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-6">
@@ -261,7 +277,7 @@ export default function HomePage() {
               Getting in touch places you under no obligation. Treatment begins only after an assessment and a plan you have agreed with your clinician.
             </p>
           </div>
-          <ol className="relative mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <ol className="relative mt-10 grid gap-10 md:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-gold-light/70 lg:block" />
             {[
               ["Contact the team", "Call us or send a brief enquiry with your preferred contact details."],
@@ -282,7 +298,7 @@ export default function HomePage() {
       </section>
 
       {/* H. Workplace mental health */}
-      <section aria-labelledby="workplace-heading" className="pb-24 md:pb-36">
+      <section aria-labelledby="workplace-heading" className="pb-16 md:pb-36">
         <div className="container-site">
           <div className="grid overflow-hidden rounded-3xl bg-plum text-ivory lg:grid-cols-2">
             <Photo image="workplace" sizes="(min-width:1024px) 50vw, 100vw" className="aspect-[3/2] lg:aspect-auto lg:min-h-[30rem]" />
@@ -299,7 +315,7 @@ export default function HomePage() {
       </section>
 
       {/* I. Frequently asked questions */}
-      <section aria-labelledby="faq-heading" className="border-t border-gold-light/50 py-24 md:py-32">
+      <section aria-labelledby="faq-heading" className="border-t border-gold-light/50 py-16 md:py-32">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="eyebrow reveal">Questions</p>

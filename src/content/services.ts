@@ -2,6 +2,7 @@ import type { ImageKey } from "@/config/images";
 
 export type Service = {
   slug: string;
+  /** Set automatically from the order of the list */
   number: string;
   title: string;
   /** One line for overviews */
@@ -16,12 +17,15 @@ export type Service = {
   /** Important clinical notes shown in a highlighted panel */
   note?: { heading: string; text: string };
   image?: ImageKey;
+  /** Extra photographs shown on the service page */
+  gallery?: ImageKey[];
+  /** Show the garden walk-through video on the service page */
+  showGardenVideo?: boolean;
 };
 
-export const services: Service[] = [
+const serviceList: Omit<Service, "number">[] = [
   {
     slug: "addiction-psychiatry",
-    number: "01",
     title: "Addiction Psychiatry & Recovery",
     summary:
       "Specialist assessment and treatment for alcohol, drug and behavioural addictions, with support for families.",
@@ -49,7 +53,6 @@ export const services: Service[] = [
   },
   {
     slug: "adult-psychiatry",
-    number: "02",
     title: "Adult Psychiatric Services",
     summary:
       "Assessment, diagnosis and treatment for a wide range of mental health conditions in adults.",
@@ -69,12 +72,40 @@ export const services: Service[] = [
     body: [
       "An initial assessment allows time to understand what you are experiencing, how long it has been present and how it is affecting your life, work and relationships. Dr Sedohia will explain his findings clearly and discuss the options available.",
       "Treatment may include medication, psychological approaches, lifestyle measures and coordination with other professionals. Decisions are made together, and plans are reviewed as your needs change.",
+      "Adult ADHD has its own dedicated assessment and management service, described on the ADHD Assessment & Management page.",
     ],
     image: "philosophy",
   },
   {
+    slug: "adhd-assessment",
+    title: "ADHD Assessment & Management",
+    summary:
+      "Careful specialist assessment of attention deficit hyperactivity disorder in adults, with clear, personalised management.",
+    intro:
+      "Many adults live for years with difficulties in attention, organisation, restlessness or impulsivity without an explanation. A thorough specialist assessment can bring clarity, and where ADHD is diagnosed, a plan that makes everyday life more manageable.",
+    coversHeading: "What assessment and management include",
+    covers: [
+      "Detailed assessment of current difficulties and how they affect work, study and relationships",
+      "Review of childhood and developmental history",
+      "Validated rating scales and, with your agreement, input from someone who knows you well",
+      "Careful consideration of other explanations, such as anxiety, depression, sleep problems or substance use",
+      "A clear explanation of the findings and what they mean for you",
+      "Medication, where clinically appropriate, with regular monitoring and review",
+      "Practical strategies for organisation, time management and focus",
+      "Support with co-occurring conditions and follow-up over time",
+    ],
+    body: [
+      "Assessment is unhurried and may take more than one appointment. Dr Sedohia will look at the full picture, because difficulties with attention and concentration can have several causes, and an accurate diagnosis is the foundation of effective care.",
+      "If ADHD is diagnosed, your plan is agreed with you. It may combine education about ADHD, medication where appropriate, practical strategies and support from family, employers or educators where you would like their involvement. Plans are reviewed regularly and adjusted as your needs change.",
+    ],
+    note: {
+      heading: "Who this service is for",
+      text: "This service is for adults. If your enquiry concerns a child or young person, please contact the team to discuss suitable options. Whether medication is suitable is decided only after full assessment, taking account of your physical health.",
+    },
+    image: "consultation",
+  },
+  {
     slug: "urgent-psychiatric-care",
-    number: "03",
     title: "Urgent & Crisis Psychiatric Interventions",
     summary:
       "Prompt specialist consultation for acute deterioration and urgent psychiatric concerns, where available.",
@@ -99,7 +130,6 @@ export const services: Service[] = [
   },
   {
     slug: "second-opinions",
-    number: "04",
     title: "Second Opinions & Specialist Reviews",
     summary:
       "Independent specialist assessment to clarify a diagnosis or review current treatment.",
@@ -118,7 +148,6 @@ export const services: Service[] = [
   },
   {
     slug: "concierge-psychiatric-care",
-    number: "05",
     title: "Private Concierge Psychiatric Care",
     summary:
       "Personal, continuous specialist care with coordination, flexibility and discretion.",
@@ -139,7 +168,6 @@ export const services: Service[] = [
   },
   {
     slug: "virtual-consultations",
-    number: "06",
     title: "Virtual Psychiatric Consultations",
     summary:
       "Secure video consultations for convenience and continuity, where clinically suitable.",
@@ -159,7 +187,6 @@ export const services: Service[] = [
   },
   {
     slug: "workplace-mental-health",
-    number: "07",
     title: "Workplace Mental Health Consultancy",
     summary:
       "Specialist mental health support, education and policy development for organisations.",
@@ -183,7 +210,6 @@ export const services: Service[] = [
   },
   {
     slug: "home-visits",
-    number: "08",
     title: "Home Visits",
     summary:
       "Specialist assessment and follow-up in the comfort and privacy of home, where suitable.",
@@ -203,7 +229,6 @@ export const services: Service[] = [
   },
   {
     slug: "advocacy-and-education",
-    number: "09",
     title: "Mental Health Advocacy & Education",
     summary:
       "Awareness, stigma reduction, professional education and community engagement.",
@@ -223,7 +248,6 @@ export const services: Service[] = [
   },
   {
     slug: "stress-management-ecotherapy",
-    number: "10",
     title: "Stress Management, Relaxation & Ecotherapy",
     summary:
       "Personalised stress management, relaxation techniques and supervised nature-based activities.",
@@ -237,12 +261,19 @@ export const services: Service[] = [
       "Appropriately supervised nature-based activities",
     ],
     body: [
-      "Time spent in natural settings can support wellbeing for many people. Where it is clinically appropriate, nature-based activities may form part of an individual plan, alongside other forms of care.",
+      "Time spent in natural settings can support wellbeing for many people. Our grounds offer shaded gardens, stone paths, tall palms and the sound of running water, giving space for quiet walks, mindful time outdoors and relaxation practice. Where it is clinically appropriate, these activities may form part of an individual plan, alongside other forms of care.",
       "Stress management and ecotherapy are complementary approaches. They do not replace psychiatric assessment or treatment where this is needed, and responses differ from person to person.",
     ],
     image: "ecotherapy",
+    gallery: ["gardenPaths", "waterfall", "royalPalms", "premisesGarden"],
+    showGardenVideo: true,
   },
 ];
+
+export const services: Service[] = serviceList.map((s, i) => ({
+  ...s,
+  number: String(i + 1).padStart(2, "0"),
+}));
 
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import ContactSection from "@/components/ContactSection";
 import { ArrowRight } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
+import GardenVideo from "@/components/GardenVideo";
 import Photo from "@/components/Photo";
 
 export const metadata: Metadata = {
@@ -59,7 +60,7 @@ export default function ExperiencePage() {
         image="philosophy"
       />
 
-      <section aria-labelledby="exp-intro" className="py-24 md:py-32">
+      <section aria-labelledby="exp-intro" className="py-16 md:py-32">
         <div className="container-site grid gap-12 lg:grid-cols-12">
           <h2 id="exp-intro" className="reveal text-4xl text-plum md:text-5xl lg:col-span-5">Care that begins with listening.</h2>
           <div className="prose-calm reveal text-lg text-stone lg:col-span-6 lg:col-start-7" style={d(100)}>
@@ -73,7 +74,7 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      <section aria-label="Our principles" className="pb-24 md:pb-32">
+      <section aria-label="Our principles" className="pb-16 md:pb-32">
         <div className="container-site">
           <ol className="grid border-t border-gold-light/70 md:grid-cols-2">
             {principles.map((p, i) => (
@@ -91,27 +92,34 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      {/* Our setting: genuine premises photographs to be supplied */}
-      <section aria-labelledby="setting-heading" className="bg-ivory-deep py-24 md:py-32">
+      {/* Our setting */}
+      <section id="setting" aria-labelledby="setting-heading" className="bg-ivory-deep py-16 md:py-32">
         <div className="container-site">
           <div className="grid gap-6 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <p className="eyebrow reveal">Our setting</p>
-              <h2 id="setting-heading" className="reveal mt-6 text-4xl text-plum md:text-5xl">A quiet place in West Trasacco.</h2>
+              <h2 id="setting-heading" className="reveal mt-6 text-4xl text-plum md:text-5xl">A garden sanctuary in West Trasacco.</h2>
             </div>
             <p className="reveal text-lg text-stone lg:col-span-5 lg:col-start-8 lg:self-end">
-              Consultations take place in a private setting in West Trasacco, Accra, designed to feel calm and welcoming. The full address is shared when your appointment is arranged.
+              Tall palms, quiet gardens, shaded balconies and the sound of running water. Our grounds are designed to feel calm from the moment you arrive. The full address is shared when your appointment is arranged.
             </p>
           </div>
-          <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-12 md:gap-6">
-            <Photo image="welcome" sizes="(min-width:768px) 33vw, 50vw" className="col-span-1 aspect-[3/4] md:col-span-4" />
-            <Photo image="premisesReception" sizes="(min-width:768px) 42vw, 50vw" className="col-span-1 aspect-[3/4] md:col-span-5 md:aspect-auto" delay={120} />
-            <Photo image="premisesLounge" sizes="(min-width:768px) 25vw, 100vw" className="col-span-2 aspect-[16/9] md:col-span-3 md:aspect-[3/4] md:mt-16" delay={240} />
+
+          <Photo image="aerialGardens" sizes="100vw" className="mt-10 aspect-[4/3] rounded-2xl md:mt-14 md:aspect-[21/9] md:rounded-3xl" />
+
+          <div className="mt-3 grid grid-cols-2 gap-3 md:mt-6 md:grid-cols-12 md:gap-6">
+            <Photo image="premisesReception" sizes="(min-width:768px) 40vw, 50vw" className="aspect-square rounded-2xl md:col-span-5 md:aspect-[4/3]" />
+            <Photo image="waterfall" sizes="(min-width:768px) 30vw, 50vw" className="aspect-square rounded-2xl md:col-span-3 md:aspect-auto" delay={100} />
+            <GardenVideo className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />
+            <Photo image="premisesLounge" sizes="(min-width:768px) 30vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-3" />
+            <Photo image="gardenPaths" sizes="(min-width:768px) 40vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-5 md:aspect-auto" delay={100} />
+            <Photo image="poolCourtyard" sizes="(min-width:768px) 40vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-4 md:aspect-[4/5]" />
+            <Photo image="royalPalms" sizes="(min-width:768px) 60vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-8 md:aspect-auto" delay={100} />
           </div>
         </div>
       </section>
 
-      <section aria-label="Explore" className="py-24 md:py-28">
+      <section aria-label="Explore" className="py-16 md:py-28">
         <div className="container-site grid gap-6 md:grid-cols-2">
           <Link href="/about" className="reveal group rounded-3xl bg-plum p-10 text-ivory md:p-12">
             <span className="eyebrow !text-gold-light">Your psychiatrist</span>

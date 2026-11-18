@@ -5,6 +5,7 @@ import ContactSection from "@/components/ContactSection";
 import { ArrowRight } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
+import GardenVideo from "@/components/GardenVideo";
 import Photo from "@/components/Photo";
 import { getService, services } from "@/content/services";
 import { site } from "@/content/site";
@@ -64,7 +65,7 @@ export default async function ServicePage({ params }: Params) {
         </div>
       )}
 
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-32">
         <div className="container-site grid gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-7">
             <h2 className="reveal text-3xl text-plum md:text-4xl">{service.coversHeading}</h2>
@@ -99,6 +100,30 @@ export default async function ServicePage({ params }: Params) {
           </div>
         </div>
       </section>
+
+      {(service.gallery?.length || service.showGardenVideo) && (
+        <section aria-labelledby="setting-gallery" className="bg-ivory-deep py-16 md:py-28">
+          <div className="container-site">
+            <p className="eyebrow reveal">Our grounds</p>
+            <h2 id="setting-gallery" className="reveal mt-5 max-w-2xl text-3xl text-plum md:text-5xl">Space to breathe, outdoors.</h2>
+            <p className="reveal mt-5 max-w-2xl text-lg text-stone">
+              Gardens, shaded paths, palms and running water within the grounds in West Trasacco.
+            </p>
+            <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-12 md:gap-6">
+              {service.showGardenVideo && <GardenVideo className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />}
+              {service.gallery?.map((g, i) => (
+                <Photo
+                  key={g}
+                  image={g}
+                  sizes="(min-width:768px) 32vw, 50vw"
+                  delay={i * 100}
+                  className={`aspect-square rounded-2xl ${service.showGardenVideo ? "md:col-span-4" : "md:col-span-6"} md:aspect-[4/3]`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section aria-label="Next service" className="border-t border-gold-light/50">
         <Link href={`/services/${next.slug}`} className="group container-site flex items-center justify-between gap-6 py-12 md:py-16">

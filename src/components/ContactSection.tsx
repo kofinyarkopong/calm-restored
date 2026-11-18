@@ -21,7 +21,7 @@ export default function ContactSection({
 }: Props) {
   const configured = isEmailConfigured();
   return (
-    <section id={id} aria-labelledby={`${id}-heading`} className="surface-grain bg-ivory-deep py-24 md:py-32">
+    <section id={id} aria-labelledby={`${id}-heading`} className="surface-grain bg-ivory-deep py-16 md:py-32">
       <div className="container-site relative grid gap-14 lg:grid-cols-12 lg:gap-20">
         <div className="lg:col-span-5">
           <p className="eyebrow reveal">Request a consultation</p>

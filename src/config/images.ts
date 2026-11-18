@@ -10,7 +10,7 @@
  *      Focal values are CSS object-position values, e.g. "50% 25%"
  *      means centred horizontally and a quarter of the way down.
  *
- * Entries with `src: null` show an elegant temporary panel until a genuine
+ * An entry with `src: null` shows an elegant temporary panel until a genuine
  * photograph is supplied. Never use stock interiors as "our premises".
  */
 
@@ -28,6 +28,7 @@ export type SiteImage = {
 };
 
 const doctor = (file: string) => `/images/doctor/${file}`;
+const prem = (file: string) => `/images/premises/${file}`;
 
 export const images = {
   /* Home: hero portrait */
@@ -125,35 +126,96 @@ export const images = {
     focal: "45% 30%",
   },
 
-  /* ------- Awaiting genuine photographs ------- */
+  /* ------- Grounds and setting (genuine photographs supplied 15 Nov 2026) ------- */
   ecotherapy: {
-    src: null,
-    alt: "Nature-based wellbeing setting",
-    width: 1600,
-    height: 2000,
-    placeholderLabel: "Ecotherapy photograph to follow",
-  },
-  premisesReception: {
-    src: null,
-    alt: "Calm Restored reception",
-    width: 2000,
-    height: 1333,
-    placeholderLabel: "Premises photograph to follow",
-  },
-  premisesLounge: {
-    src: null,
-    alt: "Calm Restored consultation lounge",
-    width: 1600,
-    height: 2000,
-    placeholderLabel: "Premises photograph to follow",
+    src: prem("garden-bench-reading.jpg"),
+    alt: "A woman reading on a wooden bench in a sunlit garden among palms and flowering shrubs",
+    width: 1080,
+    height: 1080,
+    focal: "50% 45%",
   },
   premisesGarden: {
-    src: null,
-    alt: "Calm Restored outdoor space",
-    width: 1600,
-    height: 2000,
-    placeholderLabel: "Outdoor photograph to follow",
+    src: prem("garden-orchard.jpg"),
+    alt: "A small garden of young papaya trees and tropical plants on a lawn",
+    width: 1080,
+    height: 719,
+    focal: "45% 50%",
+  },
+  premisesReception: {
+    src: prem("entrance-veranda.jpg"),
+    alt: "A shaded veranda entrance framed by potted plants and palms",
+    width: 1080,
+    height: 719,
+    focal: "40% 50%",
+  },
+  premisesLounge: {
+    src: prem("balcony-view.jpg"),
+    alt: "A curved, cushioned balcony looking out over palm trees and the grounds",
+    width: 809,
+    height: 1080,
+    focal: "50% 60%",
+  },
+  aerialGardens: {
+    src: prem("aerial-gardens.jpg"),
+    alt: "Aerial view of the grounds: tall palms surrounding a swimming pool and garden paths",
+    width: 1080,
+    height: 571,
+    focal: "50% 55%",
+  },
+  gardenPaths: {
+    src: prem("garden-paths.jpg"),
+    alt: "Stone garden paths winding across a lawn between planted beds",
+    width: 960,
+    height: 601,
+    focal: "45% 50%",
+  },
+  waterfall: {
+    src: prem("waterfall.jpg"),
+    alt: "A tiered stone waterfall flowing into a pool, surrounded by tropical foliage",
+    width: 1080,
+    height: 1080,
+    focal: "50% 50%",
+  },
+  royalPalms: {
+    src: prem("royal-palms.jpg"),
+    alt: "A row of tall royal palms against a clear sky",
+    width: 1080,
+    height: 720,
+    focal: "50% 40%",
+  },
+  poolCourtyard: {
+    src: prem("pool-courtyard.jpg"),
+    alt: "A swimming pool and sun loungers in a courtyard shaded by palms",
+    width: 810,
+    height: 1080,
+    focal: "50% 60%",
+  },
+  poolOverhead: {
+    src: prem("pool-overhead.jpg"),
+    alt: "Overhead view of a curved swimming pool with clear blue water",
+    width: 960,
+    height: 640,
+  },
+  groundsTrees: {
+    src: prem("grounds-trees.jpg"),
+    alt: "Mature trees and palms in the grounds, with the pool beyond",
+    width: 810,
+    height: 1080,
+    focal: "50% 50%",
+  },
+  courtyardPool: {
+    src: prem("courtyard-pool.jpg"),
+    alt: "The building and garden courtyard seen from above, with the pool in the foreground",
+    width: 1080,
+    height: 717,
   },
 } satisfies Record<string, SiteImage>;
 
 export type ImageKey = keyof typeof images;
+
+/** Garden walk-through video (silent). Plays only when the visitor presses play. */
+export const gardenVideo = {
+  src: "/media/garden-walk.mp4",
+  poster: "/media/garden-walk-poster.jpg",
+  label: "A short walk through the gardens",
+};

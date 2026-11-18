@@ -36,7 +36,7 @@ export default function WorkplacePage() {
         <Link href="#enquiry" className="btn btn-light">Discuss your organisation <ArrowRight /></Link>
       </PageHero>
 
-      <section aria-labelledby="why-heading" className="py-24 md:py-32">
+      <section aria-labelledby="why-heading" className="py-16 md:py-32">
         <div className="container-site grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-6">
             <p className="eyebrow reveal">Why it matters</p>
@@ -56,7 +56,7 @@ export default function WorkplacePage() {
         </div>
       </section>
 
-      <section aria-labelledby="offer-heading" className="bg-ivory-deep py-24 md:py-32">
+      <section aria-labelledby="offer-heading" className="bg-ivory-deep py-16 md:py-32">
         <div className="container-site">
           <p className="eyebrow reveal">What we offer</p>
           <h2 id="offer-heading" className="reveal mt-6 max-w-3xl text-4xl text-plum md:text-5xl">Support shaped around your organisation.</h2>
@@ -71,7 +71,7 @@ export default function WorkplacePage() {
         </div>
       </section>
 
-      <section aria-labelledby="how-heading" className="py-24 md:py-32">
+      <section aria-labelledby="how-heading" className="py-16 md:py-32">
         <div className="container-site grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow reveal">How we work together</p>

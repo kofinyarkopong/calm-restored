@@ -20,6 +20,10 @@ export const faqs = [
     a: "Family members often play a valuable part in recovery. With your permission, relatives can be involved in appointments, planning and support. You decide who is involved and what information is shared, except where safety or legal obligations apply.",
   },
   {
+    q: "Do you assess and treat ADHD in adults?",
+    a: "Yes. Dr Sedohia offers specialist assessment for adults who think they may have ADHD, and ongoing management for those who are diagnosed. Assessment is thorough, may take more than one appointment and considers other possible explanations for your difficulties. Any treatment, including medication, is agreed with you after assessment.",
+  },
+  {
     q: "Can I ask for a second opinion?",
     a: "Yes. Dr Sedohia offers independent specialist reviews to clarify a diagnosis or review current treatment. With your consent, his recommendations can be shared with your existing clinician.",
   },

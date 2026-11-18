@@ -23,12 +23,12 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Our services"
         title={<>Specialist care, <em className="font-light italic text-gold-light">arranged around you.</em></>}
-        intro={<p>Ten areas of specialist practice, each delivered personally by a specialist psychiatrist and coordinated to suit your needs, your schedule and your privacy.</p>}
+        intro={<p>Eleven areas of specialist practice, each delivered personally by a specialist psychiatrist and coordinated to suit your needs, your schedule and your privacy.</p>}
       />
 
       {/* Two principal specialisms as editorial features */}
-      <section aria-label="Principal specialisms" className="py-24 md:py-32">
-        <div className="container-site space-y-24 md:space-y-32">
+      <section aria-label="Principal specialisms" className="py-16 md:py-32">
+        <div className="container-site space-y-16 md:space-y-32">
           {[addiction, adult].map((s, idx) => (
             <article key={s.slug} className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
               <div className={`lg:col-span-5 ${idx % 2 ? "lg:order-2 lg:col-start-8" : ""}`}>
@@ -51,7 +51,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Remaining services as an index */}
-      <section aria-labelledby="more-heading" className="bg-ivory-deep py-24 md:py-32">
+      <section aria-labelledby="more-heading" className="bg-ivory-deep py-16 md:py-32">
         <div className="container-site">
           <div className="grid gap-6 lg:grid-cols-12">
             <h2 id="more-heading" className="reveal text-4xl text-plum md:text-5xl lg:col-span-6">Further services</h2>
@@ -59,9 +59,9 @@ export default function ServicesPage() {
               Each service begins with a conversation about your needs. Select any service to read more.
             </p>
           </div>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-gold-light/50 md:grid-cols-2">
+          <div className="mt-10 grid gap-px md:mt-14 overflow-hidden rounded-3xl bg-gold-light/50 md:grid-cols-2">
             {rest.map((s, i) => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="reveal group flex flex-col bg-ivory-deep p-8 transition-colors duration-500 hover:bg-ivory md:p-10" style={d((i % 2) * 100)}>
+              <Link key={s.slug} href={`/services/${s.slug}`} className={`reveal group flex flex-col bg-ivory-deep p-7 transition-colors duration-500 hover:bg-ivory md:p-10 ${rest.length % 2 && i === rest.length - 1 ? "md:col-span-2" : ""}`} style={d((i % 2) * 100)}>
                 <span className="font-serif text-lg italic text-gold">{s.number}</span>
                 <h3 className="mt-3 text-[1.75rem] text-plum-ink transition-colors group-hover:text-plum">{s.title}</h3>
                 <p className="mt-3 flex-1 text-stone">{s.summary}</p>

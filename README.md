@@ -19,7 +19,7 @@ npm run build                # production build check
 | --- | --- |
 | Photographs, alt text, face position (focal point) | `src/config/images.ts` |
 | Phone, location, brand lines, navigation | `src/content/site.ts` |
-| The ten services (all text) | `src/content/services.ts` |
+| The eleven services (all text) | `src/content/services.ts` |
 | Frequently asked questions | `src/content/faqs.ts` |
 | Page text | `src/app/<page>/page.tsx` (home is `src/app/page.tsx`) |
 | Privacy notice | `src/app/privacy/page.tsx` |
@@ -31,8 +31,7 @@ npm run build                # production build check
 2. In `src/config/images.ts`, set `src`, `width`, `height` and `alt`.
 3. Adjust `focal` (desktop) and `focalMobile` so the face stays in frame. `"50% 25%"` means centred, a quarter of the way down.
 
-Slots waiting for genuine photographs (they currently show an elegant botanical panel):
-`ecotherapy`, `premisesGarden` (home, "Make room for calm"), `premisesReception`, `premisesLounge` (Experience page, "Our setting").
+Grounds photographs live in `public/images/premises/` and the garden video in `public/media/`. They appear on the homepage ("Make room for calm" and the "Our setting" band), the Experience page ("Our setting" gallery) and the Stress Management service page.
 
 ## Enquiry form (email)
 

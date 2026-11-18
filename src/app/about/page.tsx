@@ -55,7 +55,7 @@ export default function AboutPage() {
       </PageHero>
 
       {/* Introduction */}
-      <section aria-labelledby="intro-heading" className="py-24 md:py-32">
+      <section aria-labelledby="intro-heading" className="py-16 md:py-32">
         <div className="container-site grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow reveal">An introduction</p>
@@ -76,7 +76,7 @@ export default function AboutPage() {
       </section>
 
       {/* Clinical background */}
-      <section aria-labelledby="clinical-heading" className="bg-ivory-deep py-24 md:py-32">
+      <section aria-labelledby="clinical-heading" className="bg-ivory-deep py-16 md:py-32">
         <div className="container-site grid items-start gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="relative lg:col-span-5">
             <Photo image="aboutClinical" sizes="(min-width:1024px) 38vw, 90vw" className="aspect-[3/4] rounded-sm" />
@@ -143,7 +143,7 @@ export default function AboutPage() {
       </section>
 
       {/* Gallery */}
-      <section aria-label="Portraits of Dr Sedohia" className="py-24 md:py-32">
+      <section aria-label="Portraits of Dr Sedohia" className="py-16 md:py-32">
         <div className="container-site grid grid-cols-2 gap-4 md:grid-cols-12 md:gap-6">
           <Photo image="aboutPortraitFull" sizes="(min-width:768px) 33vw, 50vw" className="col-span-1 aspect-[2/3] md:col-span-4" />
           <Photo image="aboutAcademic" sizes="(min-width:768px) 33vw, 50vw" className="col-span-1 aspect-[2/3] md:col-span-4 md:mt-20" delay={150} />
@@ -152,7 +152,7 @@ export default function AboutPage() {
       </section>
 
       {/* Advocacy and organisational work */}
-      <section aria-labelledby="leadership-heading" className="bg-lavender/60 py-24 md:py-32">
+      <section aria-labelledby="leadership-heading" className="bg-lavender/60 py-16 md:py-32">
         <div className="container-site grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="eyebrow reveal">Advocacy and education</p>
