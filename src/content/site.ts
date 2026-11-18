@@ -32,6 +32,15 @@ export const site = {
     "This form is for appointment enquiries and is not monitored continuously. For an immediate emergency, seek urgent help at the nearest emergency department.",
 } as const;
 
+/** Website credit shown at the foot of every page */
+export const credit = {
+  name: "Expedyte360 Co. Ltd",
+  phoneDisplay: "055 931 3198",
+  phoneHref: "tel:+233559313198",
+  /** Put the logo file in /public/images/brand/ and set its path here, e.g. "/images/brand/expedyte360.png" */
+  logo: null as string | null,
+};
+
 export const mainNav = [
   { href: "/about", label: "About Dr Sedohia" },
   { href: "/services", label: "Our Services" },

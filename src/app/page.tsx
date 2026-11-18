@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Accordion from "@/components/Accordion";
+import CountUp from "@/components/CountUp";
 import ContactSection from "@/components/ContactSection";
 import { ArrowRight, Ornament } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
@@ -34,14 +35,14 @@ export default function HomePage() {
             priority
             sizes="(min-width:1024px) 60vw, 100vw"
             quality={82}
-            className="object-cover object-[56%_22%] lg:object-[60%_28%] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_30%)]"
+            className="kenburns object-cover object-[56%_22%] lg:object-[60%_28%] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_30%)]"
           />
           {/* Overlays keep text readable without covering the face */}
           <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-aubergine via-aubergine/60 to-transparent lg:hidden" />
           <div aria-hidden className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-aubergine/70 to-transparent" />
           <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-aubergine/80 to-transparent lg:block" />
         </div>
-        <div aria-hidden className="pointer-events-none absolute -left-48 top-1/3 hidden h-[40rem] w-[40rem] rounded-full bg-plum/45 blur-[140px] lg:block" />
+        <div aria-hidden className="pointer-events-none absolute -left-48 top-1/3 hidden h-[40rem] w-[40rem] rounded-full bg-plum/45 blur-[140px] lg:block glow-drift" />
 
         <div className="container-site relative -mt-28 pb-16 lg:mt-0 lg:flex lg:min-h-[100svh] lg:items-center lg:pb-28 lg:pt-36">
           <div className="max-w-xl xl:max-w-2xl">
@@ -106,7 +107,7 @@ export default function HomePage() {
       {/* Brand statement */}
       <section aria-label="Our promise" className="border-y border-gold-light/50 bg-lavender/60 py-16 md:py-20">
         <div className="container-site text-center">
-          <Ornament className="reveal mx-auto h-6 w-28 text-gold" />
+          <Ornament className="reveal ornament-draw mx-auto h-6 w-28 text-gold" />
           <p className="reveal mx-auto mt-8 max-w-5xl font-serif text-3xl leading-snug text-plum-ink md:text-5xl">
             Exceptional Mental Healthcare. <em className="text-plum">Absolute Discretion.</em> Personalised Recovery.
           </p>
@@ -119,7 +120,7 @@ export default function HomePage() {
           <div className="relative lg:col-span-5">
             <Photo image="meetDoctor" sizes="(min-width:1024px) 40vw, 90vw" className="aspect-[3/4] rounded-sm" />
             <div className="reveal absolute -bottom-8 right-4 max-w-[15rem] bg-plum p-6 text-ivory shadow-xl sm:-right-8" style={d(300)}>
-              <p className="font-serif text-5xl leading-none">10+</p>
+              <p className="font-serif text-5xl leading-none"><CountUp to={10} suffix="+" /></p>
               <p className="mt-2 text-sm leading-snug text-ivory/80">years of clinical experience in psychiatry</p>
             </div>
           </div>
@@ -188,7 +189,7 @@ export default function HomePage() {
 
       {/* E. The Calm Restored experience */}
       <section aria-labelledby="experience-heading" className="relative overflow-hidden bg-aubergine py-24 text-ivory md:py-36">
-        <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[36rem] w-[36rem] rounded-full bg-plum/40 blur-[140px]" />
+        <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[36rem] w-[36rem] rounded-full bg-plum/40 blur-[140px] glow-drift" />
         <div className="container-site relative grid items-center gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Photo image="philosophy" sizes="(min-width:1024px) 38vw, 90vw" className="aspect-[4/5] rounded-b-[999px]" />
@@ -252,7 +253,7 @@ export default function HomePage() {
       {/* Our setting: photographic band */}
       <section aria-labelledby="setting-band-heading" className="relative isolate overflow-hidden bg-aubergine text-ivory">
         <div className="absolute inset-0 -z-10">
-          <Photo image="aerialGardens" sizes="100vw" reveal={false} className="h-full w-full" />
+          <Photo image="aerialGardens" sizes="100vw" reveal={false} className="h-full w-full" imgClassName="parallax-img" />
         </div>
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-aubergine via-aubergine/55 to-aubergine/10 md:bg-gradient-to-r md:from-aubergine/90 md:via-aubergine/45 md:to-transparent" />
         <div className="container-site flex min-h-[30rem] items-end py-14 md:min-h-[36rem] md:items-center md:py-24">
@@ -277,7 +278,11 @@ export default function HomePage() {
               Getting in touch places you under no obligation. Treatment begins only after an assessment and a plan you have agreed with your clinician.
             </p>
           </div>
-          <ol className="relative mt-10 grid gap-10 md:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="relative mt-10 overflow-hidden rounded-2xl md:mt-14 md:rounded-3xl">
+            <Photo image="clinicSeating" sizes="100vw" className="aspect-[4/3] md:aspect-[21/8]" imgClassName="parallax-img" />
+            <p className="absolute bottom-3 left-3 rounded-full bg-ivory/90 px-4 py-1.5 text-xs uppercase tracking-[0.16em] text-plum-ink backdrop-blur md:bottom-6 md:left-6">Inside the practice</p>
+          </div>
+          <ol className="relative mt-12 grid gap-10 md:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             <div aria-hidden className="absolute left-0 right-0 top-7 hidden h-px bg-gold-light/70 lg:block" />
             {[
               ["Contact the team", "Call us or send a brief enquiry with your preferred contact details."],

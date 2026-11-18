@@ -238,3 +238,55 @@
   }
   .js .reveal, .js .reveal-image > * { opacity: 1; transform: none; clip-path: none; }
 }
+
+/* ---------- Refined motion (all disabled for reduced-motion users) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Slow, almost imperceptible drift on the hero portrait */
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.06) translate3d(-0.6%, -0.8%, 0); }
+  }
+  .kenburns { animation: kenburns 22s ease-in-out infinite alternate; transform-origin: 60% 30%; }
+
+  /* Gold ornament draws itself when revealed */
+  .ornament-draw path, .ornament-draw circle {
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    transition: stroke-dashoffset 1.8s var(--ease-calm) 0.2s;
+  }
+  .ornament-draw.is-visible path, .ornament-draw.is-visible circle { stroke-dashoffset: 0; }
+
+  /* Gentle soft "breathing" glow behind dark sections */
+  @keyframes glow-drift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+    50% { transform: translate3d(4%, -3%, 0) scale(1.08); opacity: 1; }
+  }
+  .glow-drift { animation: glow-drift 16s ease-in-out infinite; }
+
+  /* Scroll-linked effects where the browser supports them (others simply skip them) */
+  @supports (animation-timeline: view()) {
+    @keyframes parallax-y {
+      from { transform: translateY(-7%) scale(1.14); }
+      to { transform: translateY(7%) scale(1.14); }
+    }
+    .parallax-img {
+      animation: parallax-y linear both;
+      animation-timeline: view();
+    }
+    @keyframes progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .scroll-progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 2px;
+      z-index: 70;
+      transform-origin: 0 50%;
+      background: linear-gradient(90deg, var(--color-gold-light), var(--color-gold));
+      animation: progress-grow linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+.scroll-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) { .scroll-progress { display: block; } }
+}

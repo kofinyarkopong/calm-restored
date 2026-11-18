@@ -120,7 +120,7 @@ export default function AboutPage() {
         <div aria-hidden className="pointer-events-none absolute -right-40 -top-20 h-[34rem] w-[34rem] rounded-full bg-plum/45 blur-[140px]" />
         <div className="container-site relative">
           <div className="mx-auto max-w-4xl text-center">
-            <Ornament className="reveal mx-auto h-6 w-28 text-gold-light" />
+            <Ornament className="reveal ornament-draw mx-auto h-6 w-28 text-gold-light" />
             <p className="eyebrow eyebrow-plain reveal mt-8 !text-gold-light">Care philosophy</p>
             <h2 id="philosophy-heading" className="reveal mt-6 text-4xl leading-tight md:text-6xl">
               Every person deserves to be understood <em className="text-gold-light">before</em> they are treated.

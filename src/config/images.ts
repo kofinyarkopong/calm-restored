@@ -209,6 +209,36 @@ export const images = {
     width: 1080,
     height: 717,
   },
+
+  /* ------- Clinical rooms (genuine photographs supplied 18 Nov 2026) ------- */
+  clinicSeating: {
+    src: prem("clinic-consultation-seating.jpg"),
+    alt: "A private clinical room with two armchairs facing each other across a low table",
+    width: 2000,
+    height: 1333,
+    focal: "45% 60%",
+  },
+  clinicOverview: {
+    src: prem("clinic-room-overview.jpg"),
+    alt: "A bright clinical room with armchairs, a monitoring unit, an adjustable bed and a private washroom",
+    width: 2000,
+    height: 1125,
+    focal: "55% 55%",
+  },
+  clinicWide: {
+    src: prem("clinic-room-wide.jpg"),
+    alt: "A spacious, light-filled clinical room with seating and an adjustable bed",
+    width: 2000,
+    height: 1333,
+    focal: "50% 55%",
+  },
+  clinicCorner: {
+    src: prem("clinic-room-corner.jpg"),
+    alt: "A quiet seating corner in a clinical room, with armchairs beside a window",
+    width: 2000,
+    height: 1125,
+    focal: "60% 55%",
+  },
 } satisfies Record<string, SiteImage>;
 
 export type ImageKey = keyof typeof images;

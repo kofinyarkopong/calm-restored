@@ -74,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <JsonLd data={orgSchema} />
+        <div className="scroll-progress" aria-hidden />
         <Header />
         <main id="main">{children}</main>
         <Footer />

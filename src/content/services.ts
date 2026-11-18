@@ -19,6 +19,10 @@ export type Service = {
   image?: ImageKey;
   /** Extra photographs shown on the service page */
   gallery?: ImageKey[];
+  /** Heading and introduction above the gallery */
+  galleryHeading?: string;
+  galleryIntro?: string;
+  galleryEyebrow?: string;
   /** Show the garden walk-through video on the service page */
   showGardenVideo?: boolean;
 };
@@ -164,6 +168,10 @@ const serviceList: Omit<Service, "number">[] = [
     body: [
       "Your plan may combine in-person, virtual and, where suitable, home-based consultations. The team will discuss with you how care can be arranged around your commitments while keeping clinical standards and your privacy at the forefront.",
     ],
+    gallery: ["clinicSeating", "clinicOverview"],
+    galleryEyebrow: "Inside the practice",
+    galleryHeading: "Private rooms, designed for calm.",
+    galleryIntro: "Consultations take place in private, comfortable rooms, equipped for clinical assessment and monitoring where it is needed.",
     image: "meetDoctor",
   },
   {
@@ -266,6 +274,9 @@ const serviceList: Omit<Service, "number">[] = [
     ],
     image: "ecotherapy",
     gallery: ["gardenPaths", "waterfall", "royalPalms", "premisesGarden"],
+    galleryEyebrow: "Our grounds",
+    galleryHeading: "Space to breathe, outdoors.",
+    galleryIntro: "Gardens, shaded paths, palms and running water within the grounds in West Trasacco.",
     showGardenVideo: true,
   },
 ];

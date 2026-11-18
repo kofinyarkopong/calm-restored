@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { mainNav, site } from "@/content/site";
+import { credit, mainNav, site } from "@/content/site";
 import { services } from "@/content/services";
 import { PhoneIcon, PinIcon } from "./Icons";
 
@@ -57,6 +57,27 @@ export default function Footer() {
         <div className="mt-10 flex flex-col gap-3 border-t border-ivory/10 pt-8 text-xs tracking-wide text-ivory/55 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Calm Restored. All rights reserved.</p>
           <p>Specialist-led by {site.clinician.name}, {site.clinician.title}</p>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 border-t border-ivory/10 pt-8 text-center text-xs tracking-wide text-ivory/60 sm:flex-row sm:gap-4">
+          <span className="inline-flex items-center gap-2.5">
+            {credit.logo ? (
+              <Image src={credit.logo} alt="" width={28} height={28} className="h-7 w-auto" />
+            ) : (
+              <svg aria-hidden viewBox="0 0 32 32" className="h-7 w-7">
+                <circle cx="16" cy="16" r="11" fill="none" stroke="#3b82c4" strokeWidth="1.6" />
+                <path d="M5 16h22M16 5c4 3.5 4 18.5 0 22M16 5c-4 3.5-4 18.5 0 22" fill="none" stroke="#3b82c4" strokeWidth="1.1" />
+                <path d="M3 21c7 6 20 5 27-6" fill="none" stroke="#2bb3a3" strokeWidth="2.2" strokeLinecap="round" />
+              </svg>
+            )}
+            <span>
+              Website designed and powered by <strong className="font-medium text-ivory/90">{credit.name}</strong>
+            </span>
+          </span>
+          <span aria-hidden className="hidden text-gold-light sm:inline">·</span>
+          <a href={credit.phoneHref} className="link-underline text-ivory/80 hover:text-ivory">
+            Call {credit.phoneDisplay}
+          </a>
         </div>
       </div>
     </footer>

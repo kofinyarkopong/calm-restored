@@ -92,6 +92,26 @@ export default function ExperiencePage() {
         </div>
       </section>
 
+      {/* Inside the practice */}
+      <section id="practice" aria-labelledby="practice-heading" className="py-16 md:py-32">
+        <div className="container-site">
+          <div className="grid gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <p className="eyebrow reveal">Inside the practice</p>
+              <h2 id="practice-heading" className="reveal mt-6 text-4xl text-plum md:text-5xl">Private rooms, designed for calm.</h2>
+            </div>
+            <p className="reveal text-lg text-stone lg:col-span-5 lg:col-start-8 lg:self-end">
+              Bright, quiet rooms with comfortable seating for unhurried conversation, equipped for clinical assessment and monitoring where it is needed.
+            </p>
+          </div>
+          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-12 md:gap-6">
+            <Photo image="clinicSeating" sizes="(min-width:768px) 58vw, 100vw" className="col-span-2 aspect-[4/3] rounded-2xl md:col-span-7 md:row-span-2 md:aspect-auto md:min-h-[34rem]" />
+            <Photo image="clinicWide" sizes="(min-width:768px) 40vw, 50vw" className="aspect-square rounded-2xl md:col-span-5 md:aspect-[16/10]" delay={120} />
+            <Photo image="clinicOverview" sizes="(min-width:768px) 40vw, 50vw" className="aspect-square rounded-2xl md:col-span-5 md:aspect-[16/10]" delay={240} />
+          </div>
+        </div>
+      </section>
+
       {/* Our setting */}
       <section id="setting" aria-labelledby="setting-heading" className="bg-ivory-deep py-16 md:py-32">
         <div className="container-site">

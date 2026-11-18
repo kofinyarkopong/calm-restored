@@ -104,10 +104,10 @@ export default async function ServicePage({ params }: Params) {
       {(service.gallery?.length || service.showGardenVideo) && (
         <section aria-labelledby="setting-gallery" className="bg-ivory-deep py-16 md:py-28">
           <div className="container-site">
-            <p className="eyebrow reveal">Our grounds</p>
-            <h2 id="setting-gallery" className="reveal mt-5 max-w-2xl text-3xl text-plum md:text-5xl">Space to breathe, outdoors.</h2>
+            <p className="eyebrow reveal">{service.galleryEyebrow ?? "Our setting"}</p>
+            <h2 id="setting-gallery" className="reveal mt-5 max-w-2xl text-3xl text-plum md:text-5xl">{service.galleryHeading}</h2>
             <p className="reveal mt-5 max-w-2xl text-lg text-stone">
-              Gardens, shaded paths, palms and running water within the grounds in West Trasacco.
+              {service.galleryIntro}
             </p>
             <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-12 md:gap-6">
               {service.showGardenVideo && <GardenVideo className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />}
