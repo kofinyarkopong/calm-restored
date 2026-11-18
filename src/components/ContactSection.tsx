@@ -1,7 +1,7 @@
 import { site } from "@/content/site";
 import { isEmailConfigured } from "@/lib/email";
 import EnquiryForm, { EnquiryUnavailable } from "./EnquiryForm";
-import { PhoneIcon, PinIcon } from "./Icons";
+import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
 import Photo from "./Photo";
 
 type Props = {
@@ -35,6 +35,15 @@ export default function ContactSection({
                 <span>
                   <span className="block text-xs uppercase tracking-[0.18em] text-gold">Telephone</span>
                   <span className="font-serif text-2xl text-plum-ink">{site.phone.display}</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href={site.email.href} className="group flex items-center gap-4">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-gold-light text-plum transition-colors group-hover:bg-plum group-hover:text-ivory"><MailIcon className="h-5 w-5" /></span>
+                <span className="min-w-0">
+                  <span className="block text-xs uppercase tracking-[0.18em] text-gold">Email</span>
+                  <span className="block break-all text-lg text-plum-ink sm:break-normal">{site.email.address}</span>
                 </span>
               </a>
             </li>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { credit, mainNav, site } from "@/content/site";
 import { services } from "@/content/services";
-import { PhoneIcon, PinIcon } from "./Icons";
+import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
 
 export default function Footer() {
   return (
@@ -39,6 +39,11 @@ export default function Footer() {
                 <li>
                   <a href={site.phone.href} className="flex items-start gap-3 hover:text-ivory">
                     <PhoneIcon className="mt-1 h-4 w-4 text-gold-light" /> {site.phone.display}
+                  </a>
+                </li>
+                <li>
+                  <a href={site.email.href} className="flex items-start gap-3 break-all hover:text-ivory">
+                    <MailIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {site.email.address}
                   </a>
                 </li>
                 <li className="flex items-start gap-3">

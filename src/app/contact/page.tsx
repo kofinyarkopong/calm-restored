@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ContactSection from "@/components/ContactSection";
-import { PhoneIcon } from "@/components/Icons";
+import { MailIcon, PhoneIcon } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
 import { site } from "@/content/site";
 
@@ -17,10 +17,13 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title={<>Request a <em className="font-light italic text-gold-light">consultation.</em></>}
-        intro={<p>Speak to the team by telephone, or send a brief enquiry below. We will discuss your needs and the consultation options that may suit you.</p>}
+        intro={<p>Speak to the team by telephone, email support@calmrestoredwellness.com, or send a brief enquiry below. We will discuss your needs and the consultation options that may suit you.</p>}
         image="contact"
       >
-        <a href={site.phone.href} className="btn btn-light"><PhoneIcon /> Call {site.phone.display}</a>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a href={site.phone.href} className="btn btn-light"><PhoneIcon /> Call {site.phone.display}</a>
+          <a href={site.email.href} className="btn btn-outline-light"><MailIcon /> Email us</a>
+        </div>
       </PageHero>
 
       <section aria-label="Emergency information" className="bg-lavender">

@@ -14,6 +14,10 @@ export const site = {
     title: "Specialist Psychiatrist",
     specialisms: "Adult Psychiatry & Addiction Psychiatry",
   },
+  email: {
+    address: "support@calmrestoredwellness.com",
+    href: "mailto:support@calmrestoredwellness.com",
+  },
   location: {
     area: "West Trasacco",
     city: "Accra",

@@ -58,6 +58,7 @@ const orgSchema = {
   logo: `${site.url}/images/brand/logo-full.png`,
   image: `${site.url}/og-image.jpg`,
   telephone: site.phone.e164,
+  email: site.email.address,
   medicalSpecialty: "Psychiatric",
   address: {
     "@type": "PostalAddress",

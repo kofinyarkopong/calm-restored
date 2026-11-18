@@ -34,6 +34,7 @@ export default function AboutPage() {
     description: `${site.clinician.title}, ${site.clinician.specialisms}`,
     medicalSpecialty: "Psychiatric",
     telephone: site.phone.e164,
+    email: site.email.address,
     image: `${site.url}/images/doctor/sedohia-white-coat-standing.jpg`,
     address: { "@type": "PostalAddress", addressLocality: `${site.location.area}, ${site.location.city}`, addressCountry: site.location.countryCode },
     url: `${site.url}/about`,

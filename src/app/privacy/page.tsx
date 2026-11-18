@@ -24,7 +24,8 @@ export default function PrivacyPage() {
             <h2>Who we are</h2>
             <p>
               Calm Restored is a private mental health service led by {site.clinician.name}, {site.clinician.title}, based in {site.location.display}. In this notice, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to Calm Restored. You can contact us about this notice by telephone on{" "}
-              <a href={site.phone.href} className="text-plum underline">{site.phone.display}</a>.
+              <a href={site.phone.href} className="text-plum underline">{site.phone.display}</a> or by email at{" "}
+              <a href={site.email.href} className="text-plum underline">{site.email.address}</a>.
             </p>
 
             <h2>Information we collect through the enquiry form</h2>
@@ -74,7 +75,7 @@ export default function PrivacyPage() {
 
             <h2>Your choices and rights</h2>
             <p>
-              You may ask us what information we hold about you from an enquiry, ask us to correct it, or ask us to delete it where we are not required to keep it. You may also have rights under applicable data protection law, including Ghana&apos;s Data Protection Act, 2012 (Act 843). To make a request, please contact us by telephone.
+              You may ask us what information we hold about you from an enquiry, ask us to correct it, or ask us to delete it where we are not required to keep it. You may also have rights under applicable data protection law, including Ghana&apos;s Data Protection Act, 2012 (Act 843). To make a request, please contact us by telephone or email.
             </p>
 
             <h2>Emergencies</h2>
