@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Calm Restored Wellness | Private Concierge Mental Health Services",
     description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Calm Restored Wellness, Private Concierge Mental Health Services, with Dr Albert Sedohia" }],
+    images: [{ url: "/og-image-wellness.jpg", width: 1200, height: 630, alt: "Calm Restored Wellness, Private Concierge Mental Health Services, with Dr Albert Sedohia" }],
   },
-  twitter: { card: "summary_large_image", images: ["/og-image.jpg"] },
+  twitter: { card: "summary_large_image", images: ["/og-image-wellness.jpg"] },
   alternates: { canonical: "/" },
 };
 
@@ -56,7 +56,7 @@ const orgSchema = {
   description: site.descriptor,
   url: site.url,
   logo: `${site.url}/images/brand/logo-full.png`,
-  image: `${site.url}/og-image.jpg`,
+  image: `${site.url}/og-image-wellness.jpg`,
   telephone: site.phone.e164,
   email: site.email.address,
   medicalSpecialty: "Psychiatric",
