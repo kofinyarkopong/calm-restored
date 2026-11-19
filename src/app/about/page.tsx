@@ -10,7 +10,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "About Dr Albert Sedohia, Specialist Psychiatrist",
   description:
-    "Dr Albert Sedohia is a Specialist Psychiatrist in Accra with more than a decade of clinical experience in adult psychiatry and addiction psychiatry.",
+    "Dr Albert Sedohia is a private Specialist Psychiatrist in Accra, Ghana, with more than a decade of clinical experience in adult psychiatry and addiction psychiatry.",
   alternates: { canonical: "/about" },
 };
 
@@ -38,6 +38,8 @@ export default function AboutPage() {
     image: `${site.url}/images/doctor/sedohia-white-coat-standing.jpg`,
     address: { "@type": "PostalAddress", addressLocality: `${site.location.area}, ${site.location.city}`, addressCountry: site.location.countryCode },
     url: `${site.url}/about`,
+    worksFor: { "@id": `${site.url}/#practice` },
+    areaServed: { "@type": "Country", name: "Ghana" },
   };
 
   return (

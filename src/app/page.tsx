@@ -54,7 +54,7 @@ export default function HomePage() {
               <em className="block font-light italic text-gold-light">Centred on you.</em>
             </h1>
             <p className="hero-in mt-7 max-w-lg text-lg leading-relaxed text-ivory/85 md:text-xl" style={d(460)}>
-              Specialist mental healthcare in Accra, shaped around your needs, with compassion, discretion and respect.
+              Specialist mental healthcare in Accra, Ghana, shaped around your needs, with compassion, discretion and respect.
             </p>
 
             <div className="hero-in mt-9 flex items-center gap-4" style={d(580)}>
@@ -73,7 +73,7 @@ export default function HomePage() {
             </div>
 
             <p className="hero-in mt-12 text-[0.72rem] uppercase tracking-[0.2em] text-ivory/60" style={d(820)}>
-              West Trasacco, Accra <span aria-hidden className="mx-2 text-gold-light">·</span> In-person and virtual consultations
+              West Trasacco, Accra, Ghana <span aria-hidden className="mx-2 text-gold-light">·</span> In-person and virtual consultations
             </p>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function HomePage() {
               <p className="eyebrow reveal">Specialist services</p>
               <h2 id="services-heading" className="reveal mt-6 text-4xl text-plum md:text-5xl">Care for every stage of recovery.</h2>
               <p className="reveal mt-6 text-lg text-stone">
-                From a first assessment to long-term support, each service is delivered personally and coordinated around you.
+                From a first assessment to long-term support, each service is delivered personally and coordinated around you. Read more about <Link href="/private-psychiatrist-ghana" className="text-plum underline decoration-gold-light underline-offset-4 hover:text-plum-ink">private psychiatric care in Ghana</Link>.
               </p>
               <Link href="/services" className="btn btn-primary reveal mt-10">View all services <ArrowRight /></Link>
             </div>

@@ -21,6 +21,7 @@ export default function Footer() {
                 {mainNav.map((n) => (
                   <li key={n.href}><Link className="link-underline hover:text-ivory" href={n.href}>{n.label}</Link></li>
                 ))}
+                <li><Link className="link-underline hover:text-ivory" href="/private-psychiatrist-ghana">Private psychiatrist in Ghana</Link></li>
                 <li><Link className="link-underline hover:text-ivory" href="/privacy">Privacy Notice</Link></li>
               </ul>
             </div>

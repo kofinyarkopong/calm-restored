@@ -21,7 +21,11 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const s = getService((await params).slug);
   if (!s) return {};
-  return { title: s.title, description: s.summary, alternates: { canonical: `/services/${s.slug}` } };
+  return {
+    title: `${s.title} in Accra, Ghana`,
+    description: `${s.summary} With Dr Albert Sedohia, Specialist Psychiatrist, at Calm Restored Wellness in Accra, Ghana.`,
+    alternates: { canonical: `/services/${s.slug}` },
+  };
 }
 
 export default async function ServicePage({ params }: Params) {
@@ -38,6 +42,15 @@ export default async function ServicePage({ params }: Params) {
     description: service.summary,
     url: `${site.url}/services/${service.slug}`,
     about: { "@type": "MedicalSpecialty", name: "Psychiatric" },
+    provider: { "@id": `${site.url}/#practice` },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+        { "@type": "ListItem", position: 3, name: service.title, item: `${site.url}/services/${service.slug}` },
+      ],
+    },
   };
 
   return (

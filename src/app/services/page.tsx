@@ -8,9 +8,9 @@ import { services } from "@/content/services";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Our Services",
+  title: "Private Psychiatric Services in Accra, Ghana",
   description:
-    "Addiction psychiatry, adult psychiatric care, urgent consultations, second opinions, concierge care, virtual consultations, home visits, workplace mental health and stress management in Accra.",
+    "Private psychiatric services in Accra, Ghana: addiction psychiatry, adult psychiatric care, ADHD assessment, urgent consultations, second opinions, concierge care, virtual consultations, home visits, workplace mental health and stress management.",
   alternates: { canonical: "/services" },
 };
 
