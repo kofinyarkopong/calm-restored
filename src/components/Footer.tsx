@@ -42,7 +42,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href={site.email.href} className="flex items-start gap-3 break-all hover:text-ivory">
+                  <a href={site.email.gmailHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 break-all hover:text-ivory">
                     <MailIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {site.email.address}
                   </a>
                 </li>

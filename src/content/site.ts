@@ -17,6 +17,10 @@ export const site = {
   email: {
     address: "support@calmrestoredwellness.com",
     href: "mailto:support@calmrestoredwellness.com",
+    /** Opens a new Gmail message addressed to the practice, with a subject line ready. */
+    gmailHref:
+      "https://mail.google.com/mail/?view=cm&fs=1&to=support%40calmrestoredwellness.com&su=" +
+      encodeURIComponent("Consultation enquiry"),
   },
   location: {
     area: "West Trasacco",

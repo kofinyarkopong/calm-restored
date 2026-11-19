@@ -22,8 +22,11 @@ export default function ContactPage() {
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <a href={site.phone.href} className="btn btn-light"><PhoneIcon /> Call {site.phone.display}</a>
-          <a href={site.email.href} className="btn btn-outline-light"><MailIcon /> Email us</a>
+          <a href={site.email.gmailHref} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light"><MailIcon /> Email us<span className="sr-only"> (opens Gmail in a new tab)</span></a>
         </div>
+        <p className="mt-4 text-sm text-ivory/70">
+          Not using Gmail? <a href={site.email.href} className="underline decoration-gold-light/60 underline-offset-4 hover:text-ivory">Open your usual email app</a>.
+        </p>
       </PageHero>
 
       <section aria-label="Emergency information" className="bg-lavender">

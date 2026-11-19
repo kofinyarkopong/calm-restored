@@ -39,7 +39,7 @@ export default function ContactSection({
               </a>
             </li>
             <li>
-              <a href={site.email.href} className="group flex items-center gap-4">
+              <a href={site.email.gmailHref} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-gold-light text-plum transition-colors group-hover:bg-plum group-hover:text-ivory"><MailIcon className="h-5 w-5" /></span>
                 <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-[0.18em] text-gold">Email</span>
