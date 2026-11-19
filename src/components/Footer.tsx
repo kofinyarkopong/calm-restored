@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container-site">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Image src="/images/brand/logo-full-ivory.png" alt="Calm Restored, Private Concierge Mental Health Services" width={262} height={118} className="h-auto w-[220px]" />
+            <Image src="/images/brand/logo-full-ivory.png" alt="Calm Restored Wellness, Private Concierge Mental Health Services" width={1330} height={580} className="h-auto w-[230px]" />
             <p className="mt-8 max-w-sm font-serif text-xl italic leading-snug text-ivory">{site.supportingLine}</p>
           </div>
           <div className="grid gap-10 sm:grid-cols-3 lg:col-span-8">
@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-ivory/10 pt-8 text-xs tracking-wide text-ivory/55 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Calm Restored. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Calm Restored Wellness. All rights reserved.</p>
           <p>Specialist-led by {site.clinician.name}, {site.clinician.title}</p>
         </div>
 

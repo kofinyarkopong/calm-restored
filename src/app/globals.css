@@ -246,7 +246,9 @@
     from { transform: scale(1); }
     to { transform: scale(1.06) translate3d(-0.6%, -0.8%, 0); }
   }
-  .kenburns { animation: kenburns 22s ease-in-out infinite alternate; transform-origin: 60% 30%; }
+  @media (min-width: 1024px) {
+    .kenburns { animation: kenburns 22s ease-in-out infinite alternate; transform-origin: 60% 30%; }
+  }
 
   /* Gold ornament draws itself when revealed */
   .ornament-draw path, .ornament-draw circle {
@@ -290,3 +292,7 @@
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) { .scroll-progress { display: block; } }
 }
+
+/* Breathing guide orb: scale eases with each phase; still for reduced motion */
+.breath-orb { transition-property: transform; transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1); will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .breath-orb { transform: scale(0.8) !important; } }

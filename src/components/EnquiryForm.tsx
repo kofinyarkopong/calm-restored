@@ -89,7 +89,7 @@ export default function EnquiryForm({ defaultService }: { defaultService?: strin
     return (
       <div className="rounded-2xl border border-gold-light/70 bg-white/70 p-8 md:p-10" role="status">
         <h3 ref={successRef} tabIndex={-1} className="font-serif text-3xl text-plum focus:outline-none">
-          Thank you for contacting Calm Restored.
+          Thank you for contacting Calm Restored Wellness.
         </h3>
         <p className="mt-4 text-stone">
           Your enquiry has been submitted. Our team will contact you using your preferred details. Your appointment is not confirmed until agreed with the team.
@@ -218,7 +218,7 @@ export default function EnquiryForm({ defaultService }: { defaultService?: strin
         <label className="flex cursor-pointer items-start gap-3 text-[0.95rem]">
           <input type="checkbox" name="consent" required className="mt-1 h-5 w-5 shrink-0 accent-plum" {...a11y("consent")} />
           <span>
-            I agree that Calm Restored may contact me about this enquiry, as described in the{" "}
+            I agree that Calm Restored Wellness may contact me about this enquiry, as described in the{" "}
             <Link href="/privacy" className="text-plum underline underline-offset-2">privacy notice</Link>.{" "}
             <span aria-hidden className="text-plum">*</span>
           </span>

@@ -5,7 +5,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Privacy Notice",
-  description: "How Calm Restored handles the personal information you share through this website.",
+  description: "How Calm Restored Wellness handles the personal information you share through this website.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
 
             <h2>Who we are</h2>
             <p>
-              Calm Restored is a private mental health service led by {site.clinician.name}, {site.clinician.title}, based in {site.location.display}. In this notice, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to Calm Restored. You can contact us about this notice by telephone on{" "}
+              Calm Restored Wellness is a private mental health service led by {site.clinician.name}, {site.clinician.title}, based in {site.location.display}. In this notice, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to Calm Restored Wellness. You can contact us about this notice by telephone on{" "}
               <a href={site.phone.href} className="text-plum underline">{site.phone.display}</a> or by email at{" "}
               <a href={site.email.href} className="text-plum underline">{site.email.address}</a>.
             </p>

@@ -7,7 +7,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Request a Consultation",
   description:
-    "Contact Calm Restored in West Trasacco, Accra, to enquire about a private consultation with Dr Albert Sedohia, Specialist Psychiatrist. Call +233 24 276 0157.",
+    "Contact Calm Restored Wellness in West Trasacco, Accra, to enquire about a private consultation with Dr Albert Sedohia, Specialist Psychiatrist. Call +233 24 276 0157.",
   alternates: { canonical: "/contact" },
 };
 

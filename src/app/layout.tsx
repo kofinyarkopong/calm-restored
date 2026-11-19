@@ -29,8 +29,8 @@ const description =
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Calm Restored | Private Concierge Psychiatry in Accra",
-    template: "%s | Calm Restored",
+    default: "Calm Restored Wellness | Private Concierge Psychiatry in Accra",
+    template: "%s | Calm Restored Wellness",
   },
   description,
   applicationName: site.name,
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: site.name,
-    title: "Calm Restored | Private Concierge Mental Health Services",
+    title: "Calm Restored Wellness | Private Concierge Mental Health Services",
     description,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Calm Restored, Private Concierge Mental Health Services, with Dr Albert Sedohia" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Calm Restored Wellness, Private Concierge Mental Health Services, with Dr Albert Sedohia" }],
   },
   twitter: { card: "summary_large_image", images: ["/og-image.jpg"] },
   alternates: { canonical: "/" },

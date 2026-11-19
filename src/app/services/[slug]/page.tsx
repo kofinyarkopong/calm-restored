@@ -5,6 +5,7 @@ import ContactSection from "@/components/ContactSection";
 import { ArrowRight } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
+import BreathingGuide from "@/components/BreathingGuide";
 import GardenVideo from "@/components/GardenVideo";
 import Photo from "@/components/Photo";
 import { getService, services } from "@/content/services";
@@ -80,6 +81,11 @@ export default async function ServicePage({ params }: Params) {
             <div className="prose-calm reveal mt-12 text-lg text-stone">
               {service.body.map((p) => <p key={p}>{p}</p>)}
             </div>
+            {service.slug === "stress-management-ecotherapy" && (
+              <div className="reveal mt-12">
+                <BreathingGuide />
+              </div>
+            )}
             {service.note && !isUrgent && (
               <aside className="reveal mt-12 rounded-2xl border-l-4 border-gold bg-ivory-deep p-7 md:p-8">
                 <h3 className="font-serif text-2xl text-plum">{service.note.heading}</h3>

@@ -74,13 +74,13 @@ export default function Header() {
         }`}
       >
         <div className="container-site flex items-center justify-between gap-6">
-          <Link href="/" aria-label="Calm Restored, home" className="relative block h-11 w-[116px] shrink-0 md:h-[52px] md:w-[138px]">
+          <Link href="/" aria-label="Calm Restored Wellness, home" className="relative block h-12 w-[127px] shrink-0 md:h-[56px] md:w-[148px]">
             <Image
               src="/images/brand/logo-horizontal-ivory.png"
               alt=""
               fill
               priority
-              sizes="140px"
+              sizes="150px"
               className={`object-contain object-left transition-opacity duration-500 ${solid ? "opacity-0" : "opacity-100"}`}
             />
             <Image
@@ -88,7 +88,7 @@ export default function Header() {
               alt=""
               fill
               priority
-              sizes="140px"
+              sizes="150px"
               className={`object-contain object-left transition-opacity duration-500 ${solid ? "opacity-100" : "opacity-0"}`}
             />
           </Link>
@@ -123,7 +123,7 @@ export default function Header() {
             </Link>
             <a
               href={site.phone.href}
-              aria-label={`Call Calm Restored on ${site.phone.display}`}
+              aria-label={`Call Calm Restored Wellness on ${site.phone.display}`}
               className={`grid h-11 w-11 place-items-center rounded-full border sm:hidden ${
                 solid ? "border-plum/30 text-plum" : "border-ivory/50 text-ivory"
               }`}

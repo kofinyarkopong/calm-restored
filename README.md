@@ -1,4 +1,4 @@
-# Calm Restored website
+# Calm Restored Wellness website
 
 Private Concierge Mental Health Services, led by Dr Albert Sedohia, Specialist Psychiatrist, West Trasacco, Accra.
 

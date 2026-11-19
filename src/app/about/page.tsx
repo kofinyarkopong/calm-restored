@@ -70,7 +70,7 @@ export default function AboutPage() {
               His work spans adult psychiatry and addiction psychiatry. He supports individuals living with conditions such as depression, anxiety, bipolar disorder, psychosis, trauma-related difficulties and substance use disorders, as well as families looking for guidance on how best to help someone they love.
             </p>
             <p>
-              Through Calm Restored, he offers a private, specialist-led service in which every person receives time, careful attention and a plan that reflects their own circumstances and goals.
+              Through Calm Restored Wellness, he offers a private, specialist-led service in which every person receives time, careful attention and a plan that reflects their own circumstances and goals.
             </p>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
               ))}
             </div>
             <p className="reveal mt-12 text-sm text-stone/80">
-              Institutions are named to describe Dr Sedohia&apos;s professional experience only. Their mention does not imply that they endorse or are affiliated with Calm Restored.
+              Institutions are named to describe Dr Sedohia&apos;s professional experience only. Their mention does not imply that they endorse or are affiliated with Calm Restored Wellness.
             </p>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function AboutPage() {
             <h2 id="philosophy-heading" className="reveal mt-6 text-4xl leading-tight md:text-6xl">
               Every person deserves to be understood <em className="text-gold-light">before</em> they are treated.
             </h2>
-            <p className="reveal mt-6 text-sm uppercase tracking-[0.18em] text-ivory/60">The principle behind Calm Restored</p>
+            <p className="reveal mt-6 text-sm uppercase tracking-[0.18em] text-ivory/60">The principle behind Calm Restored Wellness</p>
           </div>
           <div className="mt-20 grid gap-10 md:grid-cols-3">
             {[

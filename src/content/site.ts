@@ -1,12 +1,12 @@
 /**
- * Core facts about Calm Restored.
+ * Core facts about Calm Restored Wellness.
  * Edit here and the change flows through the header, footer, contact panels,
  * structured data and metadata.
  */
 export const site = {
-  name: "Calm Restored",
+  name: "Calm Restored Wellness",
   descriptor: "Private Concierge Mental Health Services",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://calmrestoredgh.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://calmrestoredwellness.com",
   brandMessage: "Exceptional Mental Healthcare. Absolute Discretion. Personalised Recovery.",
   supportingLine: "Your Wellbeing. Your Privacy. Your Recovery.",
   clinician: {

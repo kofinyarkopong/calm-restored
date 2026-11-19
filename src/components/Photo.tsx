@@ -61,7 +61,7 @@ function Placeholder({ label, alt }: { label: string; alt: string }) {
         </g>
       </svg>
       <div className="absolute inset-4 border border-gold-light/70" aria-hidden />
-      <span className="relative font-serif text-xl italic text-plum/80">Calm Restored</span>
+      <span className="relative font-serif text-xl italic text-plum/80">Calm Restored Wellness</span>
       {process.env.NODE_ENV !== "production" && (
         <span className="relative mt-2 text-[0.7rem] uppercase tracking-[0.22em] text-gold">{label}</span>
       )}

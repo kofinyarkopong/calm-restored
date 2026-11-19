@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Accordion from "@/components/Accordion";
+import BreathingGuide from "@/components/BreathingGuide";
 import CountUp from "@/components/CountUp";
 import ContactSection from "@/components/ContactSection";
 import { ArrowRight, Ornament } from "@/components/Icons";
@@ -27,7 +28,7 @@ export default function HomePage() {
       {/* A. Photographic hero */}
       <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-aubergine text-ivory lg:min-h-[100svh]">
         {/* Portrait */}
-        <div className="hero-image-in relative h-[68svh] min-h-[440px] w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[60%]">
+        <div className="hero-image-in relative h-[68svh] min-h-[440px] w-full overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[60%]">
           <Image
             src={images.heroPortrait.src!}
             alt={images.heroPortrait.alt}
@@ -38,13 +39,14 @@ export default function HomePage() {
             className="kenburns object-cover object-[56%_22%] lg:object-[60%_28%] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_30%)]"
           />
           {/* Overlays keep text readable without covering the face */}
-          <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-aubergine via-aubergine/60 to-transparent lg:hidden" />
+          <div aria-hidden className="absolute inset-x-0 -bottom-px h-[55%] bg-gradient-to-t from-aubergine from-10% via-aubergine/60 to-transparent lg:hidden" />
           <div aria-hidden className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-aubergine/70 to-transparent" />
           <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-40 bg-gradient-to-t from-aubergine/80 to-transparent lg:block" />
         </div>
+        <div aria-hidden className="relative z-[1] -mt-1 h-1.5 bg-aubergine lg:hidden" />
         <div aria-hidden className="pointer-events-none absolute -left-48 top-1/3 hidden h-[40rem] w-[40rem] rounded-full bg-plum/45 blur-[140px] lg:block glow-drift" />
 
-        <div className="container-site relative -mt-28 pb-16 lg:mt-0 lg:flex lg:min-h-[100svh] lg:items-center lg:pb-28 lg:pt-36">
+        <div className="container-site relative z-[2] -mt-28 pb-16 lg:mt-0 lg:flex lg:min-h-[100svh] lg:items-center lg:pb-28 lg:pt-36">
           <div className="max-w-xl xl:max-w-2xl">
             <p className="eyebrow hero-in !text-gold-light" style={d(200)}>{site.descriptor}</p>
             <h1 id="hero-heading" className="hero-in mt-6 text-[2.9rem] leading-[1.02] sm:text-6xl lg:text-[5.2rem]" style={d(320)}>
@@ -87,14 +89,14 @@ export default function HomePage() {
             </h2>
             <div className="prose-calm reveal mt-8 max-w-xl text-lg text-stone" style={d(100)}>
               <p>
-                Calm Restored is a private mental health service in Accra for people who value specialist expertise, discretion and time. Every consultation is led by a specialist psychiatrist, and every plan is shaped around the individual, their circumstances and what matters most to them.
+                Calm Restored Wellness is a private mental health service in Accra for people who value specialist expertise, discretion and time. Every consultation is led by a specialist psychiatrist, and every plan is shaped around the individual, their circumstances and what matters most to them.
               </p>
               <p>
                 We refer to the people in our care as <em className="font-serif text-plum">Our Royals</em>, a reflection of the respect, dignity and individual attention every person deserves. From the first conversation, you can expect to be listened to carefully, treated with courtesy and supported in comfortable, private surroundings.
               </p>
             </div>
             <Link href="/experience" className="text-link reveal mt-10" style={d(200)}>
-              The Calm Restored experience <ArrowRight />
+              The Calm Restored Wellness experience <ArrowRight />
             </Link>
           </div>
           <div className="relative lg:col-span-5 lg:col-start-8">
@@ -187,7 +189,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* E. The Calm Restored experience */}
+      {/* E. The Calm Restored Wellness experience */}
       <section aria-labelledby="experience-heading" className="relative overflow-hidden bg-aubergine py-24 text-ivory md:py-36">
         <div aria-hidden className="pointer-events-none absolute -right-40 top-0 h-[36rem] w-[36rem] rounded-full bg-plum/40 blur-[140px] glow-drift" />
         <div className="container-site relative grid items-center gap-16 lg:grid-cols-12">
@@ -195,7 +197,7 @@ export default function HomePage() {
             <Photo image="philosophy" sizes="(min-width:1024px) 38vw, 90vw" className="aspect-[4/5] rounded-b-[999px]" />
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <p className="eyebrow reveal !text-gold-light">The Calm Restored experience</p>
+            <p className="eyebrow reveal !text-gold-light">The Calm Restored Wellness experience</p>
             <h2 id="experience-heading" className="reveal mt-6 text-4xl md:text-[3.4rem]">
               Your privacy. Your dignity. <em className="text-gold-light">Our priority.</em>
             </h2>
@@ -241,7 +243,10 @@ export default function HomePage() {
                 <li key={x} className="rounded-full border border-plum/25 px-4 py-1.5 text-sm text-plum-ink">{x}</li>
               ))}
             </ul>
-            <Link href="/services/stress-management-ecotherapy" className="btn btn-primary reveal mt-10">Explore Stress Management <ArrowRight /></Link>
+            <div className="reveal mt-10">
+              <BreathingGuide />
+            </div>
+            <Link href="/services/stress-management-ecotherapy" className="btn btn-primary reveal mt-8">Explore Stress Management <ArrowRight /></Link>
           </div>
           <div className="order-1 grid grid-cols-5 gap-4 lg:order-2 lg:col-span-6">
             <Photo image="ecotherapy" sizes="(min-width:1024px) 30vw, 55vw" className="col-span-3 aspect-[3/4] rounded-t-[999px]" />
@@ -311,7 +316,7 @@ export default function HomePage() {
               <p className="eyebrow reveal !text-gold-light">For organisations</p>
               <h2 id="workplace-heading" className="reveal mt-6 text-4xl md:text-5xl">Workplace mental health</h2>
               <p className="reveal mt-6 text-lg text-ivory/80">
-                Support your people with specialist expertise. Calm Restored works with employers on Employee Assistance Programmes, screening, education, burnout support and mental health policy, with confidentiality respected throughout.
+                Support your people with specialist expertise. Calm Restored Wellness works with employers on Employee Assistance Programmes, screening, education, burnout support and mental health policy, with confidentiality respected throughout.
               </p>
               <Link href="/workplace" className="btn btn-light reveal mt-10">Workplace services <ArrowRight /></Link>
             </div>

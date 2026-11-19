@@ -114,7 +114,7 @@ const serviceList: Omit<Service, "number">[] = [
     summary:
       "Prompt specialist consultation for acute deterioration and urgent psychiatric concerns, where available.",
     intro:
-      "When a person's mental health deteriorates quickly, families need specialist advice without delay. Calm Restored aims to offer prompt consultations for urgent psychiatric concerns, subject to availability and clinical suitability.",
+      "When a person's mental health deteriorates quickly, families need specialist advice without delay. Calm Restored Wellness aims to offer prompt consultations for urgent psychiatric concerns, subject to availability and clinical suitability.",
     coversHeading: "Situations where an urgent consultation may help",
     covers: [
       "Acute deterioration in mental health",
@@ -199,7 +199,7 @@ const serviceList: Omit<Service, "number">[] = [
     summary:
       "Specialist mental health support, education and policy development for organisations.",
     intro:
-      "Healthy organisations are built by people who feel supported. Calm Restored works with employers to strengthen mental health support, from employee programmes to leadership education and policy.",
+      "Healthy organisations are built by people who feel supported. Calm Restored Wellness works with employers to strengthen mental health support, from employee programmes to leadership education and policy.",
     coversHeading: "Services for organisations",
     covers: [
       "Employee Assistance Programmes",

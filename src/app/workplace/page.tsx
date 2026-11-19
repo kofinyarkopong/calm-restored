@@ -46,7 +46,7 @@ export default function WorkplacePage() {
                 Stress, anxiety, depression and substance use affect people in every kind of workplace. When they go unrecognised, they can affect health, relationships, performance and retention.
               </p>
               <p>
-                Calm Restored helps organisations respond with confidence. Led by Dr Albert Sedohia, Specialist Psychiatrist, our workplace services combine clinical expertise with a practical understanding of how organisations work.
+                Calm Restored Wellness helps organisations respond with confidence. Led by Dr Albert Sedohia, Specialist Psychiatrist, our workplace services combine clinical expertise with a practical understanding of how organisations work.
               </p>
             </div>
           </div>

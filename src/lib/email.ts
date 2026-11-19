@@ -7,7 +7,7 @@ import type { EnquiryInput } from "./enquiry-schema";
  *   RESEND_API_KEY      API key from Resend
  *   CONTACT_EMAIL       Where enquiries are delivered
  *   CONTACT_FROM_EMAIL  A sender on a domain verified in Resend,
- *                       e.g. "Calm Restored <enquiries@yourdomain.com>"
+ *                       e.g. "Calm Restored Wellness <enquiries@yourdomain.com>"
  */
 export function isEmailConfigured() {
   return Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_EMAIL && process.env.CONTACT_FROM_EMAIL);
@@ -28,7 +28,7 @@ export async function sendEnquiryEmail(data: EnquiryInput): Promise<{ ok: true }
   ];
 
   const text = [
-    "New consultation enquiry from the Calm Restored website",
+    "New consultation enquiry from the Calm Restored Wellness website",
     "",
     ...rows.map(([k, v]) => `${k}: ${v}`),
     "",
@@ -38,7 +38,7 @@ export async function sendEnquiryEmail(data: EnquiryInput): Promise<{ ok: true }
 
   const html = `<!doctype html><html><body style="font-family:Arial,sans-serif;color:#2b2530;background:#fbf6ee;padding:24px">
   <div style="max-width:560px;margin:auto;background:#fff;border-top:4px solid #49047e;padding:28px">
-    <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a6d2b;margin:0 0 6px">Calm Restored</p>
+    <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a6d2b;margin:0 0 6px">Calm Restored Wellness</p>
     <h1 style="font-size:20px;color:#49047e;margin:0 0 20px">New consultation enquiry</h1>
     <table style="width:100%;border-collapse:collapse;font-size:15px">
       ${rows

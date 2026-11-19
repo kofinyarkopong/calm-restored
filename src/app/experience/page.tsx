@@ -7,7 +7,7 @@ import GardenVideo from "@/components/GardenVideo";
 import Photo from "@/components/Photo";
 
 export const metadata: Metadata = {
-  title: "The Calm Restored Experience",
+  title: "The Calm Restored Wellness Experience",
   description:
     "Personalised, specialist-led psychiatric care built on dignity, informed consent, shared decisions, confidentiality and continuity of care.",
   alternates: { canonical: "/experience" },
@@ -54,9 +54,9 @@ export default function ExperiencePage() {
   return (
     <>
       <PageHero
-        eyebrow="The Calm Restored experience"
+        eyebrow="The Calm Restored Wellness experience"
         title={<>Your privacy. Your dignity. <em className="font-light italic text-gold-light">Our priority.</em></>}
-        intro={<p>What it means to be cared for by Calm Restored: specialist expertise, delivered with courtesy, discretion and genuine respect for the person in front of us.</p>}
+        intro={<p>What it means to be cared for by Calm Restored Wellness: specialist expertise, delivered with courtesy, discretion and genuine respect for the person in front of us.</p>}
         image="philosophy"
       />
 
