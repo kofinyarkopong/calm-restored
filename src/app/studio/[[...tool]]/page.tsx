@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   ...studioMetadata,
-  title: "Website editor | Calm Restored Wellness",
+  title: { absolute: "Website editor | Calm Restored Wellness" },
   robots: { index: false, follow: false },
 };
 export const viewport: Viewport = { ...studioViewport, viewportFit: "cover" };
