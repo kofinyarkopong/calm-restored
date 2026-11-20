@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactSection from "@/components/ContactSection";
 import { MailIcon, PhoneIcon } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
-import { site } from "@/content/site";
+import { getSettings } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Request a Consultation",
@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSettings();
   return (
     <>
       <PageHero
@@ -21,11 +22,11 @@ export default function ContactPage() {
         image="contact"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <a href={site.phone.href} className="btn btn-light"><PhoneIcon /> Call {site.phone.display}</a>
-          <a href={site.email.gmailHref} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light"><MailIcon /> Email us<span className="sr-only"> (opens Gmail in a new tab)</span></a>
+          <a href={settings.phone.href} className="btn btn-light"><PhoneIcon /> Call {settings.phone.display}</a>
+          <a href={settings.email.gmailHref} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light"><MailIcon /> Email us<span className="sr-only"> (opens Gmail in a new tab)</span></a>
         </div>
         <p className="mt-4 text-sm text-ivory/70">
-          Not using Gmail? <a href={site.email.href} className="underline decoration-gold-light/60 underline-offset-4 hover:text-ivory">Open your usual email app</a>.
+          Not using Gmail? <a href={settings.email.href} className="underline decoration-gold-light/60 underline-offset-4 hover:text-ivory">Open your usual email app</a>.
         </p>
       </PageHero>
 

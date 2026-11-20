@@ -4,8 +4,7 @@ import ContactSection from "@/components/ContactSection";
 import { ArrowRight } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
 import Photo from "@/components/Photo";
-import { services } from "@/content/services";
-import { site } from "@/content/site";
+import { getServices, getSettings } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Private Psychiatric Services in Accra, Ghana",
@@ -16,7 +15,8 @@ export const metadata: Metadata = {
 
 const d = (ms: number) => ({ "--delay": `${ms}ms` }) as React.CSSProperties;
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const [settings, services] = await Promise.all([getSettings(), getServices()]);
   const [addiction, adult, ...rest] = services;
   return (
     <>
@@ -84,7 +84,7 @@ export default function ServicesPage() {
                 Please telephone rather than using the online form. If someone is at immediate risk, go to the nearest emergency department.
               </p>
             </div>
-            <a href={site.phone.href} className="btn btn-primary shrink-0">Call {site.phone.display}</a>
+            <a href={settings.phone.href} className="btn btn-primary shrink-0">Call {settings.phone.display}</a>
           </div>
         </div>
       </section>

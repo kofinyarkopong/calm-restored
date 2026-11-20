@@ -6,8 +6,8 @@ import { ArrowRight } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import Photo from "@/components/Photo";
-import { services } from "@/content/services";
 import { site } from "@/content/site";
+import { getServices, getSettings, type Settings } from "@/lib/cms";
 
 const path = "/private-psychiatrist-ghana";
 
@@ -30,10 +30,10 @@ const reasons = [
 
 const featured = ["adult-psychiatry", "addiction-psychiatry", "adhd-assessment", "urgent-psychiatric-care", "second-opinions", "virtual-consultations", "home-visits", "concierge-psychiatric-care"];
 
-const ghanaFaqs = [
+const buildFaqs = (settings: Settings) => [
   {
     q: "Is there a private psychiatrist in Accra?",
-    a: `Yes. ${site.clinician.name} is a ${site.clinician.title} who sees adults privately at Calm Restored Wellness in ${site.location.display}. You can call ${site.phone.display}, email ${site.email.address} or send an enquiry through this website.`,
+    a: `Yes. ${site.clinician.name} is a ${site.clinician.title} who sees adults privately at Calm Restored Wellness in ${settings.location.display}. You can call ${settings.phone.display}, email ${settings.email.address} or send an enquiry through this website.`,
   },
   {
     q: "Can I see a psychiatrist privately in Ghana without a referral?",
@@ -49,11 +49,13 @@ const ghanaFaqs = [
   },
   {
     q: "How quickly can I be seen?",
-    a: site.availabilityNote + " Please call or send an enquiry and the team will discuss the options with you.",
+    a: settings.availabilityNote + " Please call or send an enquiry and the team will discuss the options with you.",
   },
 ];
 
-export default function PrivatePsychiatristGhanaPage() {
+export default async function PrivatePsychiatristGhanaPage() {
+  const [settings, services] = await Promise.all([getSettings(), getServices()]);
+  const ghanaFaqs = buildFaqs(settings);
   const schema = [
     {
       "@context": "https://schema.org",
@@ -87,14 +89,14 @@ export default function PrivatePsychiatristGhanaPage() {
         title={<>A private psychiatrist <em className="font-light italic text-gold-light">in Accra, Ghana.</em></>}
         intro={
           <p>
-            Confidential, specialist-led psychiatric care with {site.clinician.name}, {site.clinician.title}, at {site.name} in {site.location.display}.
+            Confidential, specialist-led psychiatric care with {site.clinician.name}, {site.clinician.title}, at {site.name} in {settings.location.display}.
           </p>
         }
         image="consultation"
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="#enquiry" className="btn btn-light">Request a Consultation <ArrowRight /></Link>
-          <a href={site.phone.href} className="btn btn-outline-light">Call {site.phone.display}</a>
+          <a href={settings.phone.href} className="btn btn-outline-light">Call {settings.phone.display}</a>
         </div>
       </PageHero>
 

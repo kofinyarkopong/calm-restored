@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { mainNav, site } from "@/content/site";
+import { mainNav } from "@/content/site";
 import { ArrowRight, PhoneIcon } from "./Icons";
 
-export default function Header() {
+export default function Header({ phone, location }: { phone: { display: string; href: string }; location: string }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -113,17 +113,17 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <a
-              href={site.phone.href}
+              href={phone.href}
               className={`hidden items-center gap-2 whitespace-nowrap text-sm tracking-wide 2xl:flex ${solid ? "text-plum-ink" : "text-ivory"}`}
             >
-              <PhoneIcon /> {site.phone.display}
+              <PhoneIcon /> {phone.display}
             </a>
             <Link href="/contact#enquiry" className={`btn hidden whitespace-nowrap sm:inline-flex ${solid ? "btn-primary" : "btn-light"} !min-h-11 !px-5`}>
               Request a Consultation
             </Link>
             <a
-              href={site.phone.href}
-              aria-label={`Call Calm Restored Wellness on ${site.phone.display}`}
+              href={phone.href}
+              aria-label={`Call Calm Restored Wellness on ${phone.display}`}
               className={`grid h-11 w-11 place-items-center rounded-full border sm:hidden ${
                 solid ? "border-plum/30 text-plum" : "border-ivory/50 text-ivory"
               }`}
@@ -185,10 +185,10 @@ export default function Header() {
             <Link href="/contact#enquiry" className="btn btn-light w-full">
               Request a Consultation <ArrowRight />
             </Link>
-            <a href={site.phone.href} className="btn btn-outline-light w-full">
-              <PhoneIcon /> Call {site.phone.display}
+            <a href={phone.href} className="btn btn-outline-light w-full">
+              <PhoneIcon /> Call {phone.display}
             </a>
-            <p className="pt-4 text-center text-sm text-ivory/60">{site.location.display}</p>
+            <p className="pt-4 text-center text-sm text-ivory/60">{location}</p>
           </div>
         </div>
       </div>

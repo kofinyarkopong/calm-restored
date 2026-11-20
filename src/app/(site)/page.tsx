@@ -6,15 +6,15 @@ import CountUp from "@/components/CountUp";
 import ContactSection from "@/components/ContactSection";
 import { ArrowRight, Ornament } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
+import NewsCard from "@/components/NewsCard";
 import Photo from "@/components/Photo";
-import { images } from "@/config/images";
-import { faqs } from "@/content/faqs";
-import { services } from "@/content/services";
 import { site } from "@/content/site";
+import { getFaqs, getImage, getPosts, getServices, getSettings } from "@/lib/cms";
 
 const d = (ms: number) => ({ "--delay": `${ms}ms` }) as React.CSSProperties;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [settings, services, faqs, heroPortrait, latestPosts] = await Promise.all([getSettings(), getServices(), getFaqs(), getImage("heroPortrait"), getPosts(3)]);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -30,8 +30,8 @@ export default function HomePage() {
         {/* Portrait */}
         <div className="hero-image-in relative h-[68svh] min-h-[440px] w-full overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[60%]">
           <Image
-            src={images.heroPortrait.src!}
-            alt={images.heroPortrait.alt}
+            src={heroPortrait.src!}
+            alt={heroPortrait.alt}
             fill
             priority
             sizes="(min-width:1024px) 60vw, 100vw"
@@ -324,6 +324,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* News (only when articles have been published in the editor) */}
+      {latestPosts.length > 0 && (
+        <section aria-labelledby="news-heading" className="border-t border-gold-light/50 py-16 md:py-32">
+          <div className="container-site">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="eyebrow reveal">News</p>
+                <h2 id="news-heading" className="reveal mt-6 text-4xl text-plum md:text-5xl">Latest from the practice.</h2>
+              </div>
+              <Link href="/news" className="btn btn-primary reveal shrink-0">All news <ArrowRight /></Link>
+            </div>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {latestPosts.map((p, i) => <NewsCard key={p.slug} post={p} delay={i * 80} />)}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* I. Frequently asked questions */}
       <section aria-labelledby="faq-heading" className="border-t border-gold-light/50 py-16 md:py-32">
         <div className="container-site grid gap-12 lg:grid-cols-12">
@@ -331,7 +349,7 @@ export default function HomePage() {
             <p className="eyebrow reveal">Questions</p>
             <h2 id="faq-heading" className="reveal mt-6 text-4xl text-plum md:text-5xl">Frequently asked questions</h2>
             <p className="reveal mt-6 text-stone">
-              If your question is not answered here, please call <a href={site.phone.href} className="text-plum underline underline-offset-2">{site.phone.display}</a>.
+              If your question is not answered here, please call <a href={settings.phone.href} className="text-plum underline underline-offset-2">{settings.phone.display}</a>.
             </p>
           </div>
           <div className="reveal lg:col-span-8">

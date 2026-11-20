@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { serviceOptions } from "@/content/services";
-import { site } from "@/content/site";
 import { consultationFormats, contactMethods, validateEnquiry, type FieldErrors } from "@/lib/enquiry-schema";
 import { ArrowRight, PhoneIcon } from "./Icons";
 
@@ -11,7 +9,10 @@ type Status = "idle" | "submitting" | "success" | "error" | "unavailable" | "rat
 
 const fieldOrder = ["name", "contactMethod", "email", "phone", "service", "format", "message", "consent"] as const;
 
-export default function EnquiryForm({ defaultService }: { defaultService?: string }) {
+export type FormContact = { phone: { display: string; href: string }; email: { address: string; href: string } };
+
+export default function EnquiryForm({ defaultService, contact, serviceOptions }: { defaultService?: string; contact: FormContact; serviceOptions: string[] }) {
+  const site = contact;
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [method, setMethod] = useState<string>("Telephone");
@@ -248,7 +249,8 @@ export default function EnquiryForm({ defaultService }: { defaultService?: strin
   );
 }
 
-export function EnquiryUnavailable() {
+export function EnquiryUnavailable({ contact }: { contact: FormContact }) {
+  const site = contact;
   return (
     <div className="rounded-2xl border border-gold-light/70 bg-white/70 p-8 md:p-10">
       <h3 className="font-serif text-2xl text-plum md:text-3xl">Online enquiries are temporarily unavailable.</h3>

@@ -1,6 +1,4 @@
 import { z } from "zod";
-import { serviceOptions } from "@/content/services";
-
 export const contactMethods = ["Telephone", "Email", "WhatsApp"] as const;
 export const consultationFormats = ["In-person", "Virtual", "Home visit", "Not sure yet"] as const;
 
@@ -24,7 +22,7 @@ export const enquirySchema = z
       .transform((v) => (v ? v : undefined))
       .refine((v) => !v || phonePattern.test(v), "Please enter a valid telephone number."),
     contactMethod: z.enum(contactMethods, { message: "Please choose how you would like to be contacted." }),
-    service: z.enum(serviceOptions as [string, ...string[]], { message: "Please choose a service." }),
+    service: z.string({ message: "Please choose a service." }).trim().min(1, "Please choose a service.").max(120, "Please choose a service."),
     format: z.enum(consultationFormats, { message: "Please choose a consultation format." }),
     message: z.string().trim().max(1000, "Please keep your message under 1,000 characters.").optional(),
     consent: z.literal(true, { message: "Please confirm that we may contact you about your enquiry." }),

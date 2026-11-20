@@ -6,6 +6,7 @@ import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import Photo from "@/components/Photo";
 import { site } from "@/content/site";
+import { getSettings } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "About Dr Albert Sedohia, Specialist Psychiatrist",
@@ -25,7 +26,8 @@ const expertise = [
   ["Multidisciplinary care", "Working alongside other health professionals so that care remains joined up."],
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const settings = await getSettings();
   const physician = {
     "@context": "https://schema.org",
     "@type": "Physician",
@@ -33,8 +35,8 @@ export default function AboutPage() {
     name: site.clinician.name,
     description: `${site.clinician.title}, ${site.clinician.specialisms}`,
     medicalSpecialty: "Psychiatric",
-    telephone: site.phone.e164,
-    email: site.email.address,
+    telephone: settings.phone.e164,
+    email: settings.email.address,
     image: `${site.url}/images/doctor/sedohia-white-coat-standing.jpg`,
     address: { "@type": "PostalAddress", addressLocality: `${site.location.area}, ${site.location.city}`, addressCountry: site.location.countryCode },
     url: `${site.url}/about`,
@@ -53,7 +55,7 @@ export default function AboutPage() {
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="/contact#enquiry" className="btn btn-light">Request a Consultation <ArrowRight /></Link>
-          <a href={site.phone.href} className="btn btn-outline-light">Call {site.phone.display}</a>
+          <a href={settings.phone.href} className="btn btn-outline-light">Call {settings.phone.display}</a>
         </div>
       </PageHero>
 

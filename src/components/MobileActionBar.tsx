@@ -1,11 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { site } from "@/content/site";
 import { MailIcon, PhoneIcon } from "./Icons";
 
 /** Discreet Call and Enquire bar on small screens, shown after the hero. */
-export default function MobileActionBar() {
+export default function MobileActionBar({ phoneHref }: { phoneHref: string }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > window.innerHeight * 0.7);
@@ -22,7 +21,7 @@ export default function MobileActionBar() {
       }`}
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <a href={site.phone.href} className="flex min-h-12 items-center justify-center gap-2 text-[0.78rem] font-medium uppercase tracking-[0.16em]">
+      <a href={phoneHref} className="flex min-h-12 items-center justify-center gap-2 text-[0.78rem] font-medium uppercase tracking-[0.16em]">
         <PhoneIcon /> Call
       </a>
       <Link href="/contact#enquiry" className="flex min-h-12 items-center justify-center gap-2 border-l border-ivory/15 text-[0.78rem] font-medium uppercase tracking-[0.16em]">

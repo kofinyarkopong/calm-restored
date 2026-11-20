@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { images, type ImageKey, type SiteImage } from "@/config/images";
+import type { ImageKey, SiteImage } from "@/config/images";
+import { getImage } from "@/lib/cms";
 
 type Props = {
   image: ImageKey | SiteImage;
@@ -10,6 +11,8 @@ type Props = {
   /** Wrap in a gentle reveal-on-scroll */
   reveal?: boolean;
   delay?: number;
+  /** Keep the photo's own shape (used by galleries) */
+  naturalShape?: boolean;
 };
 
 /**
@@ -17,12 +20,13 @@ type Props = {
  * The parent decides the shape (e.g. `aspect-[4/5]`); the photo fills it.
  * When `src` is null, an elegant temporary panel is shown instead.
  */
-export default function Photo({ image, sizes, priority, className = "", imgClassName = "", reveal = true, delay = 0 }: Props) {
-  const img: SiteImage = typeof image === "string" ? images[image] : image;
+export default async function Photo({ image, sizes, priority, className = "", imgClassName = "", reveal = true, delay = 0, naturalShape = false }: Props) {
+  const img: SiteImage = typeof image === "string" ? await getImage(image) : image;
   const style = {
     "--fp": img.focal ?? "50% 50%",
     "--fpm": img.focalMobile ?? img.focal ?? "50% 50%",
     "--delay": `${delay}ms`,
+    ...(naturalShape ? { aspectRatio: `${img.width} / ${img.height}` } : {}),
   } as React.CSSProperties;
 
   return (

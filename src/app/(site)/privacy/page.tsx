@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { site } from "@/content/site";
+import { getSettings } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Privacy Notice",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = "17 November 2026";
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const settings = await getSettings();
   return (
     <>
       <PageHero eyebrow="Privacy" title="Privacy notice" intro={<p>How we handle the information you share with us through this website.</p>} />
@@ -23,9 +25,9 @@ export default function PrivacyPage() {
 
             <h2>Who we are</h2>
             <p>
-              Calm Restored Wellness is a private mental health service led by {site.clinician.name}, {site.clinician.title}, based in {site.location.display}. In this notice, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to Calm Restored Wellness. You can contact us about this notice by telephone on{" "}
-              <a href={site.phone.href} className="text-plum underline">{site.phone.display}</a> or by email at{" "}
-              <a href={site.email.href} className="text-plum underline">{site.email.address}</a>.
+              Calm Restored Wellness is a private mental health service led by {site.clinician.name}, {site.clinician.title}, based in {settings.location.display}. In this notice, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to Calm Restored Wellness. You can contact us about this notice by telephone on{" "}
+              <a href={settings.phone.href} className="text-plum underline">{settings.phone.display}</a> or by email at{" "}
+              <a href={settings.email.href} className="text-plum underline">{settings.email.address}</a>.
             </p>
 
             <h2>Information we collect through the enquiry form</h2>

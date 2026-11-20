@@ -5,6 +5,7 @@ import { ArrowRight } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
 import GardenVideo from "@/components/GardenVideo";
 import Photo from "@/components/Photo";
+import { getMedia } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "The Calm Restored Wellness Experience",
@@ -50,7 +51,8 @@ const principles = [
   },
 ];
 
-export default function ExperiencePage() {
+export default async function ExperiencePage() {
+  const media = await getMedia();
   return (
     <>
       <PageHero
@@ -130,7 +132,7 @@ export default function ExperiencePage() {
           <div className="mt-3 grid grid-cols-2 gap-3 md:mt-6 md:grid-cols-12 md:gap-6">
             <Photo image="premisesReception" sizes="(min-width:768px) 40vw, 50vw" className="aspect-square rounded-2xl md:col-span-5 md:aspect-[4/3]" />
             <Photo image="waterfall" sizes="(min-width:768px) 30vw, 50vw" className="aspect-square rounded-2xl md:col-span-3 md:aspect-auto" delay={100} />
-            <GardenVideo className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />
+            <GardenVideo video={media.featuredVideo} className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />
             <Photo image="premisesLounge" sizes="(min-width:768px) 30vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-3" />
             <Photo image="gardenPaths" sizes="(min-width:768px) 40vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-5 md:aspect-auto" delay={100} />
             <Photo image="poolCourtyard" sizes="(min-width:768px) 40vw, 50vw" className="aspect-[3/4] rounded-2xl md:col-span-4 md:aspect-[4/5]" />
@@ -138,6 +140,34 @@ export default function ExperiencePage() {
           </div>
         </div>
       </section>
+
+      {(media.gallery.length > 0 || media.videos.length > 0) && (
+        <section id="gallery" aria-labelledby="gallery-heading" className="py-16 md:py-28">
+          <div className="container-site">
+            <p className="eyebrow reveal">Gallery</p>
+            <h2 id="gallery-heading" className="reveal mt-6 max-w-2xl text-4xl text-plum md:text-5xl">Moments from Calm Restored Wellness.</h2>
+            {media.videos.length > 0 && (
+              <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:mt-14">
+                {media.videos.map((v, i) => (
+                  <GardenVideo key={`${v.src}-${i}`} video={v} className={v.portrait ? "mx-auto w-full max-w-[22rem]" : "w-full sm:col-span-2 lg:col-span-2"} />
+                ))}
+              </div>
+            )}
+            {media.gallery.length > 0 && (
+              <ul className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3 md:mt-14">
+                {media.gallery.map((g, i) => (
+                  <li key={`${g.src}-${i}`} className="reveal mb-6 break-inside-avoid" style={d((i % 3) * 80)}>
+                    <figure>
+                      <Photo image={g} sizes="(min-width:1024px) 30vw, (min-width:640px) 45vw, 90vw" reveal={false} naturalShape className="rounded-2xl" />
+                      {g.caption && <figcaption className="mt-3 text-[0.95rem] text-stone">{g.caption}</figcaption>}
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </section>
+      )}
 
       <section aria-label="Explore" className="py-16 md:py-28">
         <div className="container-site grid gap-6 md:grid-cols-2">

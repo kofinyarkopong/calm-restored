@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { credit, mainNav, site } from "@/content/site";
-import { services } from "@/content/services";
+import { getServices, getSettings } from "@/lib/cms";
 import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
 
-export default function Footer() {
+export default async function Footer() {
+  const [settings, services] = await Promise.all([getSettings(), getServices()]);
   return (
     <footer className="bg-aubergine pb-28 pt-20 text-ivory/80 md:pb-12">
       <div className="container-site">
@@ -21,6 +22,7 @@ export default function Footer() {
                 {mainNav.map((n) => (
                   <li key={n.href}><Link className="link-underline hover:text-ivory" href={n.href}>{n.label}</Link></li>
                 ))}
+                <li><Link className="link-underline hover:text-ivory" href="/news">News</Link></li>
                 <li><Link className="link-underline hover:text-ivory" href="/private-psychiatrist-ghana">Private psychiatrist in Ghana</Link></li>
                 <li><Link className="link-underline hover:text-ivory" href="/privacy">Privacy Notice</Link></li>
               </ul>
@@ -38,17 +40,17 @@ export default function Footer() {
               <h2 className="eyebrow eyebrow-plain mb-5 !text-gold-light">Contact</h2>
               <ul className="space-y-4 text-[0.95rem]">
                 <li>
-                  <a href={site.phone.href} className="flex items-start gap-3 hover:text-ivory">
-                    <PhoneIcon className="mt-1 h-4 w-4 text-gold-light" /> {site.phone.display}
+                  <a href={settings.phone.href} className="flex items-start gap-3 hover:text-ivory">
+                    <PhoneIcon className="mt-1 h-4 w-4 text-gold-light" /> {settings.phone.display}
                   </a>
                 </li>
                 <li>
-                  <a href={site.email.gmailHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 break-all hover:text-ivory">
-                    <MailIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {site.email.address}
+                  <a href={settings.email.gmailHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 break-all hover:text-ivory">
+                    <MailIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {settings.email.address}
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <PinIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {site.location.display}
+                  <PinIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {settings.location.display}
                 </li>
                 <li><Link href="/contact#enquiry" className="link-underline text-ivory">Request a consultation</Link></li>
               </ul>

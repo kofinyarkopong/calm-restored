@@ -8,18 +8,19 @@ import PageHero from "@/components/PageHero";
 import BreathingGuide from "@/components/BreathingGuide";
 import GardenVideo from "@/components/GardenVideo";
 import Photo from "@/components/Photo";
-import { getService, services } from "@/content/services";
+import { getMedia, getService, getServices, getSettings } from "@/lib/cms";
 import { site } from "@/content/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const services = await getServices();
   return services.map((s) => ({ slug: s.slug }));
 }
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const s = getService((await params).slug);
+  const s = await getService((await params).slug);
   if (!s) return {};
   return {
     title: `${s.title} in Accra, Ghana`,
@@ -29,8 +30,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function ServicePage({ params }: Params) {
-  const service = getService((await params).slug);
+  const service = await getService((await params).slug);
   if (!service) notFound();
+  const [settings, services, media] = await Promise.all([getSettings(), getServices(), getMedia()]);
   const idx = services.indexOf(service);
   const next = services[(idx + 1) % services.length];
   const isUrgent = service.slug === "urgent-psychiatric-care";
@@ -63,7 +65,7 @@ export default async function ServicePage({ params }: Params) {
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           {isUrgent ? (
-            <a href={site.phone.href} className="btn btn-light">Call {site.phone.display}</a>
+            <a href={settings.phone.href} className="btn btn-light">Call {settings.phone.display}</a>
           ) : (
             <Link href="#enquiry" className="btn btn-light">Request a Consultation <ArrowRight /></Link>
           )}
@@ -110,9 +112,9 @@ export default async function ServicePage({ params }: Params) {
             <div className="lg:sticky lg:top-32">
               {service.image && <Photo image={service.image} sizes="(min-width:1024px) 30vw, 90vw" className="aspect-[4/5] rounded-t-[999px]" />}
               <div className="reveal mt-8 rounded-2xl bg-plum p-7 text-ivory">
-                <p className="font-serif text-xl leading-snug">{site.availabilityNote}</p>
-                <a href={site.phone.href} className="mt-6 inline-flex items-center gap-2 text-[0.78rem] font-medium uppercase tracking-[0.16em] text-gold-light">
-                  Call {site.phone.display}
+                <p className="font-serif text-xl leading-snug">{settings.availabilityNote}</p>
+                <a href={settings.phone.href} className="mt-6 inline-flex items-center gap-2 text-[0.78rem] font-medium uppercase tracking-[0.16em] text-gold-light">
+                  Call {settings.phone.display}
                 </a>
               </div>
             </div>
@@ -129,7 +131,7 @@ export default async function ServicePage({ params }: Params) {
               {service.galleryIntro}
             </p>
             <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-12 md:gap-6">
-              {service.showGardenVideo && <GardenVideo className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />}
+              {service.showGardenVideo && <GardenVideo video={media.featuredVideo} className="col-span-2 mx-auto w-full max-w-[22rem] md:col-span-4 md:row-span-2 md:max-w-none" />}
               {service.gallery?.map((g, i) => (
                 <Photo
                   key={g}

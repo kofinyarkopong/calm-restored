@@ -1,12 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import JsonLd from "@/components/JsonLd";
-import MobileActionBar from "@/components/MobileActionBar";
-import RevealObserver from "@/components/RevealObserver";
-import { services } from "@/content/services";
 import { site } from "@/content/site";
 
 // Self-hosted fonts (SIL Open Font Licence): Fraunces for headings, Jost for text
@@ -49,51 +43,6 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#220a31" };
 
-const orgSchema = {
-  "@context": "https://schema.org",
-  "@type": ["MedicalClinic", "MedicalBusiness"],
-  "@id": `${site.url}/#practice`,
-  name: site.name,
-  description: site.descriptor,
-  url: site.url,
-  logo: `${site.url}/images/brand/logo-full.png`,
-  image: `${site.url}/og-image-wellness.jpg`,
-  telephone: site.phone.e164,
-  email: site.email.address,
-  medicalSpecialty: "Psychiatric",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: `${site.location.area}, ${site.location.city}`,
-    addressRegion: "Greater Accra",
-    addressCountry: site.location.countryCode,
-  },
-  areaServed: { "@type": "Country", name: "Ghana" },
-  founder: { "@id": `${site.url}/#physician` },
-  employee: {
-    "@type": "Physician",
-    "@id": `${site.url}/#physician`,
-    name: site.clinician.name,
-    medicalSpecialty: "Psychiatric",
-    url: `${site.url}/about`,
-  },
-  knowsAbout: [
-    "Private psychiatric care",
-    "Adult psychiatry",
-    "Addiction psychiatry",
-    "Adult ADHD assessment",
-    "Depression",
-    "Anxiety disorders",
-    "Bipolar disorder",
-    "Alcohol and drug addiction",
-  ],
-  availableService: services.map((s) => ({
-    "@type": "MedicalTherapy",
-    name: s.title,
-    description: s.summary,
-    url: `${site.url}/services/${s.slug}`,
-  })),
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${fraunces.variable} ${jost.variable}`} suppressHydrationWarning>
@@ -101,13 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body>
-        <JsonLd data={orgSchema} />
-        <div className="scroll-progress" aria-hidden />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <MobileActionBar />
-        <RevealObserver />
+        {children}
       </body>
     </html>
   );
