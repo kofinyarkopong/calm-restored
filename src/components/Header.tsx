@@ -112,12 +112,6 @@ export default function Header({ phone, location }: { phone: { display: string; 
           </nav>
 
           <div className="flex items-center gap-3">
-            <a
-              href={phone.href}
-              className={`hidden items-center gap-2 whitespace-nowrap text-sm tracking-wide 2xl:flex ${solid ? "text-plum-ink" : "text-ivory"}`}
-            >
-              <PhoneIcon /> {phone.display}
-            </a>
             <Link href="/contact#enquiry" className={`btn hidden whitespace-nowrap sm:inline-flex ${solid ? "btn-primary" : "btn-light"} !min-h-11 !px-5`}>
               Request a Consultation
             </Link>
