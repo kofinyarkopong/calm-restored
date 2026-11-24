@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AnnualCheck from "@/components/AnnualCheck";
 import ContactSection from "@/components/ContactSection";
 import { ArrowRight } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
@@ -8,7 +9,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Workplace Mental Health",
   description:
-    "Workplace mental health consultancy in Accra: Employee Assistance Programmes, screening, psychiatric consultations, education, burnout support, crisis intervention and policy development.",
+    "Workplace mental health in Accra, Ghana: confidential annual mental health checks for individuals and organisations, Employee Assistance Programmes, psychiatric consultations, education, burnout support, crisis intervention and policy development.",
   alternates: { canonical: "/workplace" },
 };
 
@@ -16,7 +17,7 @@ const d = (ms: number) => ({ "--delay": `${ms}ms` }) as React.CSSProperties;
 
 const offers = [
   ["Employee Assistance Programmes", "Confidential access to specialist mental health support for your employees."],
-  ["Workplace screening", "Structured mental health screening to help identify needs early."],
+  ["Annual mental health checks", "Confidential yearly checks for employees, to identify needs early."],
   ["Psychiatric consultations", "Specialist assessment and treatment for employees who need it."],
   ["Counselling support", "Access to supportive conversations for employees facing difficulties."],
   ["Mental health education", "Talks and training for staff, managers and leadership teams."],
@@ -63,13 +64,17 @@ export default function WorkplacePage() {
           <dl className="mt-14 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-4">
             {offers.map(([t, b], i) => (
               <div key={t} className="reveal border-t border-gold-light/70 py-8" style={d((i % 4) * 80)}>
-                <dt className="font-serif text-2xl text-plum-ink">{t}</dt>
+                <dt className="font-serif text-2xl text-plum-ink">
+                  {t === "Annual mental health checks" ? <Link href="#annual-check" className="underline decoration-gold-light underline-offset-[6px] hover:text-plum">{t}</Link> : t}
+                </dt>
                 <dd className="mt-3 text-stone">{b}</dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
+
+      <AnnualCheck />
 
       <section aria-labelledby="how-heading" className="py-16 md:py-32">
         <div className="container-site grid gap-14 lg:grid-cols-12">

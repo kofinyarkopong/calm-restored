@@ -296,3 +296,11 @@
 /* Breathing guide orb: scale eases with each phase; still for reduced motion */
 .breath-orb { transition-property: transform; transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1); will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .breath-orb { transform: scale(0.8) !important; } }
+
+/* Annual mental health check: gentle pulse on the question mark */
+@keyframes check-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 10, 49, 0.35); }
+  50% { box-shadow: 0 0 0 10px rgba(34, 10, 49, 0); }
+}
+.check-pulse { animation: check-pulse 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .check-pulse { animation: none; } }

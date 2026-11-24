@@ -96,6 +96,18 @@ export default async function ServicePage({ params }: Params) {
             <div className="prose-calm reveal mt-12 text-lg text-stone">
               {service.body.map((p) => <p key={p}>{p}</p>)}
             </div>
+            {service.slug === "workplace-mental-health" && (
+              <Link href="/workplace#annual-check" className="reveal group mt-12 flex items-center justify-between gap-6 rounded-2xl bg-aubergine p-7 text-ivory md:p-8">
+                <span>
+                  <span className="eyebrow !text-gold-light">Annual mental health check</span>
+                  <span className="mt-3 block font-serif text-2xl md:text-3xl">We check the body every year. <em className="italic text-gold-light">Who checks the mind?</em></span>
+                  <span className="mt-2 block text-ivory/75">Confidential annual checks for individuals and organisations.</span>
+                </span>
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-gold-light/60 text-gold-light transition-colors group-hover:bg-gold-light group-hover:text-aubergine">
+                  <ArrowRight className="h-5 w-5" />
+                </span>
+              </Link>
+            )}
             {service.slug === "stress-management-ecotherapy" && (
               <div className="reveal mt-12">
                 <BreathingGuide />
