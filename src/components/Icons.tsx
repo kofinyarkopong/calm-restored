@@ -15,6 +15,12 @@ export const MailIcon = ({ className = "h-4 w-4" }: P) => (
     <path d="m4 7 8 6 8-6" strokeLinejoin="round" />
   </svg>
 );
+export const ChatIcon = ({ className = "h-4 w-4" }: P) => (
+  <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+    <path d="M12 3.5a8.5 8.5 0 0 0-7.4 12.7L3.5 20.5l4.4-1.1A8.5 8.5 0 1 0 12 3.5Z" strokeLinejoin="round" />
+    <path d="M8.5 10.5h7M8.5 13.5h4.5" strokeLinecap="round" />
+  </svg>
+);
 export const PinIcon = ({ className = "h-4 w-4" }: P) => (
   <svg aria-hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
     <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" />

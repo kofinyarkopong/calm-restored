@@ -83,6 +83,8 @@ export async function getImage(key: ImageKey): Promise<SiteImage> {
 
 export type Settings = {
   phone: { display: string; href: string; e164: string };
+  /** WhatsApp chat link for the same number, with a short opening message */
+  whatsappHref: string;
   email: { address: string; href: string; gmailHref: string };
   location: { area: string; city: string; country: string; countryCode: string; display: string };
   availabilityNote: string;
@@ -91,8 +93,12 @@ export type Settings = {
 const gmailCompose = (address: string) =>
   `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(address)}&su=${encodeURIComponent("Consultation enquiry")}`;
 
+const whatsappLink = (e164: string) =>
+  `https://wa.me/${e164.replace(/\D/g, "")}?text=${encodeURIComponent("Hello Dr Sedohia, I would like to enquire about a consultation.")}`;
+
 export const defaultSettings: Settings = {
   phone: site.phone,
+  whatsappHref: whatsappLink(site.phone.e164),
   email: site.email,
   location: site.location,
   availabilityNote: site.availabilityNote,
@@ -107,6 +113,7 @@ export const getSettings = cache(async (): Promise<Settings> => {
   const email = doc.email?.trim() || site.email.address;
   return {
     phone: { display: doc.phoneDisplay?.trim() || site.phone.display, href: `tel:${e164}`, e164 },
+    whatsappHref: whatsappLink(e164),
     email: { address: email, href: `mailto:${email}`, gmailHref: gmailCompose(email) },
     location: doc.location?.trim() ? { ...site.location, display: doc.location.trim() } : site.location,
     availabilityNote: doc.availabilityNote?.trim() || site.availabilityNote,
