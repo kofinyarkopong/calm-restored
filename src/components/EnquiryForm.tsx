@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import EmailText from "@/components/EmailText";
 import { useEffect, useRef, useState } from "react";
 import { consultationFormats, contactMethods, validateEnquiry, type FieldErrors } from "@/lib/enquiry-schema";
 import { ArrowRight, PhoneIcon } from "./Icons";
@@ -129,7 +130,7 @@ export default function EnquiryForm({ defaultService, contact, serviceOptions }:
             <p>We have received several enquiries from this connection in a short time. Please wait a few minutes, or call us on <a className="font-medium text-plum underline" href={site.phone.href}>{site.phone.display}</a>.</p>
           )}
           {status === "error" && (
-            <p>Sorry, your enquiry could not be sent. Nothing has been submitted. Please try again, call us on <a className="font-medium text-plum underline" href={site.phone.href}>{site.phone.display}</a> or email <a className="font-medium text-plum underline" href={site.email.href}>{site.email.address}</a>.</p>
+            <p>Sorry, your enquiry could not be sent. Nothing has been submitted. Please try again, call us on <a className="font-medium text-plum underline" href={site.phone.href}>{site.phone.display}</a> or email <a className="font-medium text-plum underline" href={site.email.href}><EmailText address={site.email.address} /></a>.</p>
           )}
         </div>
       )}
@@ -255,7 +256,7 @@ export function EnquiryUnavailable({ contact }: { contact: FormContact }) {
     <div className="rounded-2xl border border-gold-light/70 bg-white/70 p-8 md:p-10">
       <h3 className="font-serif text-2xl text-plum md:text-3xl">Online enquiries are temporarily unavailable.</h3>
       <p className="mt-4 text-stone">
-        Please telephone the team or email <a className="text-plum underline" href={site.email.href}>{site.email.address}</a>. We will be glad to discuss your needs and suitable consultation options.
+        Please telephone the team or email <a className="text-plum underline" href={site.email.href}><EmailText address={site.email.address} /></a>. We will be glad to discuss your needs and suitable consultation options.
       </p>
       <a href={site.phone.href} className="btn btn-primary mt-8">
         <PhoneIcon /> Call {site.phone.display}

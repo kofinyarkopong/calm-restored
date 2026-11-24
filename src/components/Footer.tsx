@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EmailText from "@/components/EmailText";
 import Link from "next/link";
 import { credit, mainNav, site } from "@/content/site";
 import { getServices, getSettings } from "@/lib/cms";
@@ -45,8 +46,8 @@ export default async function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href={settings.email.gmailHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 break-all hover:text-ivory">
-                    <MailIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> {settings.email.address}
+                  <a href={settings.email.gmailHref} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 hover:text-ivory">
+                    <MailIcon className="mt-1 h-4 w-4 shrink-0 text-gold-light" /> <span className="min-w-0"><EmailText address={settings.email.address} /></span>
                   </a>
                 </li>
                 <li className="flex items-start gap-3">

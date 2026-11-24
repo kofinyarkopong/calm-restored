@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import EmailText from "@/components/EmailText";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import { site } from "@/content/site";
@@ -27,7 +28,7 @@ export default async function PrivacyPage() {
             <p>
               Calm Restored Wellness is a private mental health service led by {site.clinician.name}, {site.clinician.title}, based in {settings.location.display}. In this notice, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to Calm Restored Wellness. You can contact us about this notice by telephone on{" "}
               <a href={settings.phone.href} className="text-plum underline">{settings.phone.display}</a> or by email at{" "}
-              <a href={settings.email.href} className="text-plum underline">{settings.email.address}</a>.
+              <a href={settings.email.href} className="text-plum underline"><EmailText address={settings.email.address} /></a>.
             </p>
 
             <h2>Information we collect through the enquiry form</h2>

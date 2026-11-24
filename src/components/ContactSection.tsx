@@ -1,4 +1,5 @@
 import { getServices, getSettings } from "@/lib/cms";
+import EmailText from "@/components/EmailText";
 import { isEmailConfigured } from "@/lib/email";
 import EnquiryForm, { EnquiryUnavailable } from "./EnquiryForm";
 import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
@@ -46,7 +47,7 @@ export default async function ContactSection({
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-gold-light text-plum transition-colors group-hover:bg-plum group-hover:text-ivory"><MailIcon className="h-5 w-5" /></span>
                 <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-[0.18em] text-gold">Email</span>
-                  <span className="block break-all text-[0.98rem] text-plum-ink sm:break-normal sm:text-lg">{settings.email.address}</span>
+                  <span className="block text-[0.98rem] text-plum-ink sm:text-lg"><EmailText address={settings.email.address} /></span>
                 </span>
               </a>
             </li>
